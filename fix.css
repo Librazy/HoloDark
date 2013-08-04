@@ -1,0 +1,26 @@
+#header .logo .link-logo{ display:inline-block; background:url(images/logo.png); width:23px; height:25px; float:left; margin-right:5px; }
+#header .logo .btn-quicknav a{ position:absolute; top:13px; left:5px; display:none; text-indent:-9999em; width:10px; height:5px; background:url(images/quicknav_arrow.png) no-repeat; }
+.fn_search #search-btn{ width:50px; height:28px; background:url(images/icon_search.png) no-repeat; float:left; }
+.moremenu #more-btn{ width:40px; height:28px; background:url(images/icon_more.png) no-repeat; border-left:1px solid #CCC; float:left; cursor:pointer; }
+.morehover .bottom{ width:268px; height:6px; background:url(images/more_bottom.png) no-repeat; }
+#devdoc-nav a.totop{
+	top:0;
+	background:#445566 url(images/gototop.png) no-repeat scroll 50% 50%;
+	text-indent:-9999em;
+	display:none;
+	height:22px;
+}
+#smart-nav .nav-section-header:after{
+	content:'';
+	background:transparent url(images/disclosure_down.png) no-repeat scroll 50% 50%;
+	width:34px;
+	height:34px;
+	display:block;
+	position:absolute;
+	top:0;
+	right:0; }
+#smart-nav li.expanded > .nav-section-header:after{
+	content:'';
+	background:transparent url(images/disclosure_up.png) no-repeat scroll 50% 50%;
+	width:34px;
+	height:34px; }
