@@ -54,7 +54,7 @@ get_header(); ?>
 				</div><!-- #author-avatar -->
 				<h2><span>A</span><?php printf(  'bout %s', get_the_author() ); ?></h2>
 				<div class="auteweima">
-				<img src="https://chart.googleapis.com/chart?cht=qr&chs=160x160&choe=UTF-8&chld=L|3&chl=<?php echo wp_get_shortlink(); ?>" width="160" height="160" alt="二维码" rel="nofollow noindex" />
+				<img src="<?php echo holodark_generate_qr(wp_get_shortlink()); ?> " width="160" height="160" alt="二维码" rel="nofollow noindex" />
 				</div><!-- .erweima -->
 				<div id="autauthor-description-content"><?php the_author_meta( 'description' ); ?></div>
 				<div id="author-link">

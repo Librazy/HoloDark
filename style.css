@@ -950,9 +950,6 @@ object{
 	float:right;
 	display:inline;
 }
-.eweima img{
-	margin-left:-15px;
-}
 .auteweima{
 	width:160px;
 	height:160px;
@@ -977,7 +974,7 @@ object{
 	color:#09F;
 }
 #author-description-content{
-	max-width:570px;
+	max-width:548px;
 	overflow:hidden;
 }
 #autauthor-description-content{
@@ -1036,6 +1033,18 @@ Post Formats Headings
 To hide the headings, display: none the ".entry-header .entry-format" selector,
 and remove the padding rules below.
 */
+.format-status img.avatar,#author-info #author-avatar img.avatar{
+	-moz-border-radius:3px;
+	border-radius:3px;
+	-webkit-box-shadow:0 1px 2px #ccc;
+	-moz-box-shadow:0 1px 2px #ccc;
+	box-shadow:0 1px 2px #ccc;
+	float:left;
+	margin:4px 10px 2px 0;
+	padding:0;
+	width:65px !important;
+	height:65px !important;
+}
 .entry-header .entry-format{
 	color:#EEE;
 	font-size:10px;
@@ -1113,9 +1122,11 @@ blockquote.pull.alignright{
 /* =Aside
 ----------------------------------------------- */
 
-.format-aside .entry-title,
 .format-aside .entry-header .comments-link{
 	display:none;
+}
+.format-aside .entry-title{
+        font-size:16px;
 }
 .singular .format-aside .entry-title{
 	display:block;
@@ -1130,12 +1141,17 @@ blockquote.pull.alignright{
 /* =Link
 ----------------------------------------------- */
 
-.format-link .entry-title,
 .format-link .entry-header .comments-link{
 	display:none;
 }
+.format-link .entry-title{
+        font:12px normal;
+}
 .singular .format-link .entry-title{
 	display:block;
+}
+.format-link .entry-title:before{
+	content:"";
 }
 .format-link .entry-content{
 	padding:0;
@@ -1156,12 +1172,17 @@ blockquote.pull.alignright{
 /* =Status
 ----------------------------------------------- */
 
-.format-status .entry-title,
 .format-status .entry-header .comments-link{
 	display:none;
 }
+.format-status .entry-title{
+	font:13px normal;
+}
 .singular .format-status .entry-title{
 	display:block;
+}
+.format-status .entry-title:before{
+	content:"";
 }
 .format-status .entry-content{
 	padding:0;
@@ -1169,16 +1190,7 @@ blockquote.pull.alignright{
 .singular .format-status .entry-content{
 	padding:1.625em 0 0;
 }
-.format-status img.avatar{
-	-moz-border-radius:3px;
-	border-radius:3px;
-	-webkit-box-shadow:0 1px 2px #ccc;
-	-moz-box-shadow:0 1px 2px #ccc;
-	box-shadow:0 1px 2px #ccc;
-	float:left;
-	margin:4px 10px 2px 0;
-	padding:0;
-}
+
 
 /* =Quote
 ----------------------------------------------- */
@@ -1188,7 +1200,9 @@ blockquote.pull.alignright{
 	font-size:17px;
 	margin:0;
 }
-
+.format-quote .entry-title:before{
+	content:"";
+}
 /* =Image
 ----------------------------------------------- */
 
@@ -1291,8 +1305,6 @@ article.intro .entry-content{
 /* Featured post */
 section.featured-post{
 	float:left;
-	margin:-1.625em -8.9% 1.625em;
-	padding:1.625em 8.9% 0;
 	position:relative;
 	width:100%;
 }
@@ -1311,7 +1323,6 @@ section.featured-post .entry-meta{
 section.featured-post .attachment-small-feature{
 	float:right;
 	height:auto;
-	margin:0 -8.9% 1.625em 0;
 	max-width:59%;
 	position:relative;
 	right:-15px;
@@ -1401,27 +1412,23 @@ section.feature-image.large img{
 .featured-posts{
 	border-bottom:1px solid #33B5E5;
 	display:block;
-	height:328px;
-	margin:1.625em -8.9% 20px;
-	max-width:1000px;
+	height:228px;
+	max-width:800px;
 	padding:0;
 	position:relative;
-	overflow:hidden;
 }
 .featured-posts .showcase-heading{
 	padding-left:8.9%;
 }
 .featured-posts section.featured-post{
-	height:288px;
+	height:188px;
 	left:0;
 	margin:0;
 	position:absolute;
 	top:30px;
-	width:auto;
 }
 .featured-posts section.featured-post.large{
 	max-width:100%;
-	overflow:hidden;
 }
 .featured-posts section.featured-post{
 	-webkit-transition-duration:200ms;
@@ -1452,7 +1459,7 @@ section.feature-image.large img{
 	width:100%;
 	height:45px;
 	position:absolute;
-	top:230px;
+	top:154px;
 }
 .featured-post .feature-image.small:after{
 	top:253px;
@@ -1731,7 +1738,7 @@ p.attachment a{
 	_display:none;
 }
 .commentlist > li:before{
-	content:url(images/comment-arrow.png);
+	content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAARCAYAAAAyhueAAAAAwUlEQVR42q3SMQrCQBCFYSvBKq3gAQRv4BkEL2HlDQQvIXgMwQNYeQPBfgVDQpINS8gu2UpY3wgBYcqZha/9i503Mca88zxPmiiawbWqquS9TzFGMYqO9hDbtlWNkhU867pWjZIZnMuyTF3XCaPcFpy1VhjlFnCnI4YQhFHuCB/nnDDKreHVNI0wymVwoe/o+14Y5XYQsGlhlFvCgzY9DAOLSkzhVBQFbVopCin9GhuweGrRMTyHG46oFv2PH9Sj5AsumXQQAGhxnQAAAABJRU5ErkJggg==);
 	left:-21px;
 	position:absolute;
 }
@@ -1778,7 +1785,7 @@ a.comment-reply-link > span{
 	color:#575757;
 }
 .commentlist > li.bypostauthor:before{
-	content:url(images/comment-arrow-bypostauthor.png);
+	content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAARCAYAAAAyhueAAAAAtklEQVR42q3SvwmCQQyHYSvB6msFBxDcwBkEl7ByA8ElBMcQHMDKDQSP++6/YCtYCVZC/J1wIKRMiqd9CUkGxpi7tZY01WgHR+ccpZSolCJWo80a3iEEtWgzgyumVos2I9j3fU8xRmGUW8LTey+MchM413XknIVRbgsfHFEY5eZwwzqEUa6DQ/tpWZRbwQvrEEa5KVwwtTDKDWHXflonCkS/xgIeOKJatIXHcMI61KL/8Y1GlPkCaYQ0X9JDNZwAAAAASUVORK5CYII=);
 }
 
 /* Post Author threaded comments */
@@ -2079,12 +2086,12 @@ p.comment-form-comment{
 		margin:0;
 		width:100%;
 	}
-	.singular .entry-header .entry-meta{
-		position:static;
-	}
 
 	#content nav{
 		display:none;
+	}
+	.singular .entry-header .entry-meta{
+		position:static;
 	}
 	.singular .entry-header,
 	.singular .entry-content,

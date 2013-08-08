@@ -1,6 +1,5 @@
 <?php
 
-
 $is_ad = false; // 庙的广告,默认关闭
 define('DFenableautmeta', true);
 define('DFsearch', '%s 的搜索结果');
@@ -216,7 +215,8 @@ add_filter("the_content", "article_nav");
 // dotann
 
 function utf8_trim($str)
-{
+{   
+    $hex = '';
     for ($i = strlen($str) - 1; $i >= 0; $i -= 1) {
         $hex .= ' ' . ord($str[$i]);
         $ch = ord($str[$i]);
@@ -425,6 +425,24 @@ function holodark_the_title($thetitle)
     return esc_attr($thetitle);
 }
 add_filter('the_title','holodark_the_title');
+
+function holodark_generate_qr($value, $errorCorrectionLevels="M", $matrixPointSizes="4")
+{
+    $PNG_TEMP_DIR = dirname(__FILE__).DIRECTORY_SEPARATOR.'tempqr'.DIRECTORY_SEPARATOR;
+    if (!file_exists($PNG_TEMP_DIR))
+        mkdir($PNG_TEMP_DIR);
+   
+    $errorCorrectionLevel="M";
+    if (in_array($errorCorrectionLevels, array('L','M','Q','H')))
+         $errorCorrectionLevel = $errorCorrectionLevels;
+     $matrixPointSize = 4;
+     $matrixPointSize = min(max((int)$matrixPointSizes, 1), 10);
+     $filename = $PNG_TEMP_DIR.'qr'.md5($value.'|'.$errorCorrectionLevel.'|'.$matrixPointSize).'.png';
+     if (!file_exists($filename)){include "phpqrcode/phpqrcode.php";
+             QRcode::png($value,  $filename, $errorCorrectionLevel, $matrixPointSize);
+      }
+     return  '/wp-content/themes/HoloDark/tempqr/'.'qr'.md5($value.'|'.$errorCorrectionLevel.'|'.$matrixPointSize).'.png';
+}
 remove_action ('wp_head', 'wp_generator');
 remove_action( 'wp_head', 'rsd_link' );   
 remove_action( 'wp_head', 'wlwmanifest_link'); 

@@ -91,7 +91,7 @@
 				<h2><span>A</span><?php printf( __( 'bout %s', 'android' ), get_the_author() ); ?></h2>
 				<div class="eweima">
 					<!--<img src="http://catqr.yiduqiang.com/cat/ys/average.php?bj_16_color=FFFFFF&bbj=&logoIMGtoBJ=img/2012/12/08/f93de05c9647b9a592e94756cf7566ed.png&ewm_16_color=000000&yj=Y&cw=H&width=10&JZurl=&JZx=&JZy=&txt=<?php echo wp_get_shortlink(); ?>" width="160" height="160" alt="大猫二维码" rel="nofollow noindex" />-->
-                                        <img src="https://chart.googleapis.com/chart?cht=qr&chs=160x160&choe=UTF-8&chld=L|3&chl=<?php echo wp_get_shortlink(); ?>" width="160" height="160" alt="二维码" rel="nofollow noindex" />
+                                        <img src="<?php echo holodark_generate_qr(wp_get_shortlink()); ?>" width="160" height="160" alt="二维码" rel="nofollow noindex" />
 				</div><!-- .erweima -->
 				<div id="author-description-content"><?php the_author_meta( 'description' ); ?></div>
 				<div id="author-link">
