@@ -33,6 +33,7 @@
 		<?php endif; ?>
 
 		<footer class="entry-meta">
+			<?php android_posted_on(); ?>
 			<?php if ( comments_open() ) : ?>
 			<span class="comments-link"><?php comments_popup_link( '<span class="leave-reply">' . __(DFreply, 'android' ) . '</span>', __( DFareply, 'android' ), __( DFreplies, 'android' ) ); ?></span>
 			<?php endif; // End if comments_open() ?>

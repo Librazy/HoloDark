@@ -67,7 +67,7 @@
       * as styles, scripts, and meta tags.
       */
 if(is_home()){
-    eval("su_head();");} 
+    eval("su_head();");} //hack SEO Ultimate
     wp_head();
    ?>
 </head>

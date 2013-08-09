@@ -29,6 +29,7 @@
            title="<?php esc_attr_e('Semantic Personal Publishing Platform', 'android'); ?>"
            target="_blank"><?php printf(__('%s', 'android'), 'WordPress'); ?></a>
         &amp;&amp; <a href="http://ooxx.me/theme-android.orz" title="Android Developer Style Theme" target="_blank">Android</a>
+	 &amp;&amp; <a href="http://im.librazy.org/wordpress-holodark/" title="HoloDark Theme" target="_blank">HoloDark</a>
     </div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
