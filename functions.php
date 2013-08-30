@@ -401,10 +401,6 @@ function android_mailtocommenter($cid){
 }
 add_action('comment_post', create_function('$cid', 'return android_mailtocommenter($cid);'));
 
-if ( function_exists('register_sidebar') )
-    register_sidebar();
-
-
 /**
  * 判断是否移动终端
  */
@@ -443,6 +439,40 @@ function holodark_generate_qr($value, $errorCorrectionLevels="M", $matrixPointSi
       }
      return  '/wp-content/themes/HoloDark/tempqr/'.'qr'.md5($value.'|'.$errorCorrectionLevel.'|'.$matrixPointSize).'.png';
 }
+function holodark_init_sidebar() {
+  register_sidebar( array (
+  'name' => 'Static',
+  'id' => 'static',
+  'before_widget' => '<li id="%1$s">',
+  'after_widget' => '</li>',
+  'before_title' => '<h2>',
+  'after_title' => '</h2>',
+  ) );
+  register_sidebar( array (
+  'name' => 'Fix',
+  'id' => 'fix',
+  'before_widget' => '<li id="%1$s">',
+  'after_widget' => '</li>',
+ 'before_title' => '<h2>',
+ 'after_title' => '</h2>',
+  ) );
+  register_sidebar( array (
+  'name' => 'Footer',
+  'id' => 'footer',
+  'before_widget' => '<div id="%1$s">',
+  'after_widget' => '</div>',
+ 'before_title' => '<span>',
+ 'after_title' => '</span>',
+  ) );
+}
+function is_sidebar_active( $index ){
+  global $wp_registered_sidebars;
+  $widgetcolums = wp_get_sidebars_widgets();
+  if ($widgetcolums[$index]) return true;
+  return false;
+}
+
+add_action( 'init', 'holodark_init_sidebar' );
 remove_action ('wp_head', 'wp_generator');
 remove_action( 'wp_head', 'rsd_link' );   
 remove_action( 'wp_head', 'wlwmanifest_link'); 

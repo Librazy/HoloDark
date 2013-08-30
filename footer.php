@@ -9,20 +9,38 @@
  * @since Android 1.0
  */
 ?>
+<?php if ( is_sidebar_active('static')||is_sidebar_active('fix') ) : ?>
 <div  id="sidebar-right" class="wrap">
 <ul id="sidebar">
-<?php if ( !function_exists('dynamic_sidebar')
-        || !dynamic_sidebar() ) : ?>
- <li id="placeholder">
-  <h2>placeholder</h2>
-  <p>placeholder</p>
- </li>
+<?php if ( is_sidebar_active('static') ) : ?>
+                <div id="staticsidebar">
+                        <ul>
+                                <?php dynamic_sidebar('static'); ?>
+ 
+                        </ul>
+                </div>
+<?php endif; ?>        
+ 
+ 
+<?php if ( is_sidebar_active('fix') ) : ?>
+                <div id="fixsidebar">
+                        <ul>
+                                <?php dynamic_sidebar('fix'); ?>
+                        </ul>
+                </div>
 <?php endif; ?>
 </ul>
 </div>
+<?php endif; ?>
+
 </div><!-- #main -->
 <footer id="footer" class="wrap" role="contentinfo">
     <div class="lay_wrap">
+<?php if ( is_sidebar_active('footer') ) : ?>
+                <div id="footerbar">
+                                <?php dynamic_sidebar('footer'); ?>
+                </div>
+<?php endif; ?>        
         <?php do_action('android_credits'); ?>
         <?php bloginfo('description'); ?>.
         <a href="<?php echo esc_url(__('http://wordpress.org/', 'android')); ?>"
@@ -38,6 +56,6 @@
     var home_url="<?php echo esc_url(home_url('/')); ?>";
     var is_mobile="<?php if(is_mobile()){echo 'true';}?>";
 </script>
-<script src="<?php bloginfo('stylesheet_directory'); ?>/js/android.js"></script>
+<script src="<?php bloginfo('stylesheet_directory'); ?>/js/holodark.js"></script>
 </body>
 </html>

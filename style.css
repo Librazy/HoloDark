@@ -4,7 +4,7 @@ Theme URI: http://im.librazy.org/
 Author: Librazy
 Author URI: http://im.librazy.org/
 Description: Android developer Design.
-Version: 1.0
+Version: 1.0.130830.stagit
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: dark, holo, gray,  three-columns, left-sidebar, right-sidebar,  custom-background,editor-style, featured-image-header, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, translation-ready
@@ -87,18 +87,21 @@ body{
 	font-weight:400;
 	letter-spacing:.1px;
 }
+body #primary .syntaxhighlighter{word-wrap:break-word;word-break:break-all !important;overflow-y:hidden !important;}
 .hiddenvc{ display:none !important; }
 .ui-hide{ display:none !important; }
 .clearfix:before, .clearfix:after{ content:"."; display:block; height:0; visibility:hidden }
 .clearfix:after{ clear:both }
 .clearfix{ zoom:1 }
-::-webkit-scrollbar{ width:10px; margin-right:2px }
+::-webkit-scrollbar{ height:10px;width:10px; margin-right:2px }
 ::-webkit-scrollbar-track-piece{background-color:#F5F5F5;border-left:1px solid #D2D2D2;}
-::-webkit-scrollbar-thumb{ background:#CBCBCB; width:10px }
+::-webkit-scrollbar-thumb{ background:#33B5E5; width:10px }
 ::-webkit-scrollbar-thumb:hover{ background:#909090 }
 
 #devdoc-nav::-webkit-scrollbar,
 #devdoc-nav::-webkit-scrollbar-thumb{ width:5px; }
+#fixsidebar>ul::-webkit-scrollbar,
+#fixsidebar>ul::-webkit-scrollbar-thumb{ width:8px; }
 
 /* --------------------------------------------------------------------------
 Buttons
@@ -254,7 +257,8 @@ a.button, a.button:visited, #submit{
 #devdoc-nav{
 	outline:none;
 	margin-top:20px;
-	height:95%; overflow:auto;
+	height:95%; 
+	overflow:auto;
 	width:160px; 
 }
 #devdoc-nav h2{
@@ -287,7 +291,7 @@ a.button, a.button:visited, #submit{
 }
 #smart-nav li{
 	list-style-type:none;
-	font-size:14px;
+	font-size:12px;
 	margin:0;
 	padding:0;
 }
@@ -459,14 +463,14 @@ blockquote cite{
 	font:12px "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight:300;
 	letter-spacing:0.05em;
-	text-transform:uppercase;cio
+	text-transform:uppercase;
 }
 pre{
 	background:#222;
 	font:13px "Courier 10 Pitch", Courier, monospace;
 	line-height:1.5;
 	margin-bottom:1.625em;
-	overflow:auto;
+	overflow-x:scroll;
 	padding:0.75em 1.625em;
 }
 code, kbd, samp, var{
@@ -900,48 +904,6 @@ object{
 .post-password-required input[type=password]:focus{
 	background:#f7f7f7;
 }
-
-/* =IE7
------------------------------------------------ */
-
-#ie7 article.intro{
-	margin-left:-7.6%;
-	margin-right:-7.6%;
-	padding-left:-7.6%;
-	padding-right:-7.6%;
-	max-width:1000px;
-}
-#ie7 section.featured-post{
-	margin-left:-7.6%;
-	margin-right:-7.6%;
-	max-width:850px;
-}
-#ie7 section.recent-posts{
-	margin-right:7.6%;
-}
-
-/* =IE8 
------------------------------------------------ */
-
-#ie8 section.feature-image.large img{
-	width:100%;
-}
-
-#msg_ie{ display:none; background:#FF0040; color:#FFEAF0; padding:1px 5px; position:fixed; _position:absolute; left:0; top:0; z-index:1000; }
-.is_ie #msg_ie{ display:block; }
-#msg_ie a{ color:#FFF; text-decoration:underline }
-
-/*mobile*/
-
-.is_mobile #quicknav,
-.is_mobile #btn-quicknav{ display:none !important; }
-.is_mobile #header{padding-top:0;}
-.is_mobile #header .lay_wrap{height:auto;}
-.is_mobile #header .logo,
-.is_mobile #header .nav-x,
-.is_mobile #header .menu-container{
-	clear:both;position:relative;height:35px;
-}
 .eweima{
 	width:160px;
 	height:160px;
@@ -1002,6 +964,10 @@ object{
 	font-size:18px;
 	font-weight:bold;
 }
+#sidebar-right ul li ul li>a {
+	font-size:16px;
+	padding-left:4px;
+}
 #sidebar-right ul li>.ds-recent-comments{
 	padding-left:0px !important;
 }
@@ -1010,14 +976,23 @@ object{
 	color:#CCC;
 }
 #sidebar-right ul li {
-	margin-bottom:10px;
+	margin-bottom:2px;
 }
-#sidebar-right ul .ds-widget-recent-comments>ul>li{
+#sidebar-right ul .ds-recent-comments .ds-comment{
 	border-top:1px dotted #33B5E5;
 }
-#sidebar-right ul li>.tagcloud>a{
+#sidebar-right ul li>.tagcloud>a,#sidebar-right ul li .ctc>a{
 	white-space:nowrap; 
 }
+#fixsidebar{
+	border-left: 1px solid rgb(51, 181, 229);
+	margin-left: -1px;
+}
+#fixsidebar>ul{
+	overflow-y:auto;
+}
+#footerbar>div,#footerbar>div li{display:inline;margin:2px;}
+#footerbar{margin-left:180px;}
 hgroup .entry-format{
 	display:inline;
 }
@@ -1966,8 +1941,14 @@ p.comment-form-comment{
 	#bdshare{
 		display:none !important;
 	}
+	#sidebar-right ul li h2 {
+		font-size:16px;
+	}
+	#sidebar-right ul li  ul li a {
+		font-size:12px;
+	}
 }
-@media (max-width: 1200px){
+@media (max-width: 1216px){
 	/* Simplify the basic layout */
 	#body-content{width:92% !important;}
 	.entry-content img{width:90%;max-width:700px;height:auto;}
@@ -1986,7 +1967,6 @@ p.comment-form-comment{
 	#sidebar-right #sidebar>li{
 		display:inline-table;
 		vertical-align:top;
-		margin-right:auto;
 	}
 	#bdshare,.nav-x,.arrow-inactive,.arrow-active,#quicknav,#btn-quicknav{
 		display:none !important;
@@ -2022,14 +2002,14 @@ p.comment-form-comment{
 	h1,h2,h3{
 		margin:0 !important;
 	}
-	#sidebar-right{
+	#sidebar-right,#footerbar{
 		margin:0;
 	}
 	#devdoc-nav.scroll-pane .totop{
 		display:none !important;
 	}
-	#smart-nav li{
-		display:inline-block;
+	#smart-nav ,#smart-nav .nav-section,#smart-nav .nav-section ul,#smart-nav li ul,#smart-nav li ul li,#smart-nav-related{
+		display:inline-block !important;
 	}
 	#devdoc-nav {
 		width: 90%;
