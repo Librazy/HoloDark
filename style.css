@@ -4,7 +4,7 @@ Theme URI: http://im.librazy.org/
 Author: Librazy
 Author URI: http://im.librazy.org/
 Description: HoloDark&Android developer Design.
-Version: 1.0.130830.stagit
+Version: 1.0.130830.1228dev
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: dark, holo, gray,  three-columns, left-sidebar, right-sidebar,  custom-background,editor-style, featured-image-header, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, translation-ready
@@ -57,7 +57,7 @@ q:before, q:after{
 }
 blockquote, q{
 	quotes:"" "";
-}
+}f
 a img{
 	border:0;
 }
@@ -677,11 +677,13 @@ a:hover{
 .entry-title a{
 	color:#33B5E5;
 	text-decoration:none;
+	-webkit-transition:text-shadow .2s linear;
+	transition:text-shadow .2s linear;
 }
 .entry-title a:hover,
 .entry-title a:focus,
 .entry-title a:active{
-	color:#1982d1;
+	color:#22A5D5;
 }
 .entry-meta{
 	color:#666;
@@ -782,6 +784,7 @@ dl.gallery-item{
 .comment-content img,
 .widget img{
 	max-width:97.5%; /* Fluid images for posts, comments, and widgets */
+	height:auto !important;
 }
 img[class*="align"],
 img[class*="wp-image-"],
@@ -1018,6 +1021,18 @@ and remove the padding rules below.
 	padding:0;
 	width:65px !important;
 	height:65px !important;
+}
+.entry-content img.wp-post-image{
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-webkit-box-shadow:0 2px 3px #ccc;
+	-moz-box-shadow:0 2px 3px #ccc;
+	box-shadow:0 2px 3px #ccc;
+	float:left;
+	margin:4px 10px 2px 0;
+	padding:0;
+	max-width:40%;
+	height:auto;
 }
 .entry-header .entry-format{
 	color:#EEE;
@@ -1951,7 +1966,7 @@ p.comment-form-comment{
 @media (max-width: 1216px){
 	/* Simplify the basic layout */
 	#body-content{width:92% !important;}
-	.entry-content img{width:90%;max-width:700px;height:auto;}
+	.entry-content img{width:80% !important;max-width:700px !important;height:auto;}
 	#primary {
 		width: 72%;
 		margin-left: 0px;
@@ -1986,6 +2001,7 @@ p.comment-form-comment{
 	}
 }
 @media (max-width: 790px){
+	.entry-content img{max-width:80% !important;height:auto;}
 	#primary {
 		width: 92%;
 		margin-left: 10px;

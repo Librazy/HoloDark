@@ -26,7 +26,8 @@
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 		<?php else : ?>
-		<div class="entry-content">
+		
+		<div class="entry-content"><?php the_post_thumbnail(); ?>
 			<?php the_content( __(DFcontreading, 'android' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'android' ) . '</span>', 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->

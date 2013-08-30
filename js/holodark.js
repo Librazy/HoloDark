@@ -1,3 +1,13 @@
+$("h1.entry-title a,h2.entry-title a").bind("mouseover mouseleave",function(e){
+	if(e.type=='mouseover'){
+		$(e.target).stop(true,true);
+		$(e.target).css({'text-shadow':'#33B5E5 0px 0px 10px'},200);
+	}else{
+		$(e.target).stop(true,true);
+		$(e.target).css({'text-shadow':'#35C5F5 0px 0px 20px'},200);
+	}
+});
+$("h1.entry-title a,h2.entry-title a").css({'text-shadow':'#35C5F5 0px 0px 15px'},200);
 $("#btn-quicknav").toggle(function () {
         $("#header-wrap").addClass("quicknav");
         $("#quicknav").slideDown("normal",function () {init();fixsidebar();});
