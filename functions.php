@@ -437,7 +437,7 @@ function holodark_generate_qr($value, $errorCorrectionLevels="M", $matrixPointSi
      if (!file_exists($filename)){include "phpqrcode/phpqrcode.php";
              QRcode::png($value,  $filename, $errorCorrectionLevel, $matrixPointSize);
       }
-     return  '/wp-content/themes/HoloDark/tempqr/'.'qr'.md5($value.'|'.$errorCorrectionLevel.'|'.$matrixPointSize).'.png';
+     return  get_template_directory_uri().'/tempqr/'.'qr'.md5($value.'|'.$errorCorrectionLevel.'|'.$matrixPointSize).'.png';
 }
 function holodark_init_sidebar() {
   register_sidebar( array (
