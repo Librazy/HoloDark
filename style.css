@@ -4,7 +4,7 @@ Theme URI: http://im.librazy.org/
 Author: Librazy
 Author URI: http://im.librazy.org/
 Description: HoloDark&Android developer Design.
-Version: 1.0.130830.1228dev
+Version: 1.0.130907.1119dev
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: dark, holo, gray,  three-columns, left-sidebar, right-sidebar,  custom-background,editor-style, featured-image-header, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, translation-ready
@@ -78,8 +78,8 @@ html, body{
 	-webkit-font-smoothing:antialiased;
 	/* prevent subpixel antialiasing, which thickens the text */
 	/* text-rendering: optimizeLegibility; */
-	/* turned off ligatures due to bug 5945455 */ }
-
+	/* turned off ligatures due to bug 5945455 */
+}
 
 body{
 	color:#CCC;
@@ -159,6 +159,8 @@ a.button, a.button:visited, #submit{
 ----------------------------------------------- */
 
 .lay_wrap{ max-width:1200px; clear:both; }
+#body-content{ width:1200px; margin:0 auto; }
+#primary{ float:left; width:800px; margin-left:10px; position:relative; padding-top:15px; }
 
 /* =Header
 ----------------------------------------------- */
@@ -201,6 +203,7 @@ a.button, a.button:visited, #submit{
 #quicknav ul li li ul li{ margin:0; }
 #quicknav ul li li ul li:before{ content:"\21B3"; }
 #footer .lay_wrap{font-size:12px;color:#BBB;}
+
 /* SEARCH AND MORE */
 .fn_search{ position:absolute; width:50px; height:28px; overflow:hidden; display:block; top:0; margin-bottom:7px; z-index:102; right:54px;
 	-webkit-transition:width 0.4s ease; -moz-transition:width 0.4s ease; transition:width 0.4s ease; }
@@ -242,10 +245,8 @@ a.button, a.button:visited, #submit{
 .morehover ul li.active a,
 .morehover ul li.active a:hover{  text-decoration:none;font-weight:bold !important; }
 .morehover ul li.active img{ margin-right:4px; }
-#smart-nav-related{ display:none; }
 
-#body-content{ width:1200px; margin:0 auto; }
-
+/* nav */
 #side-nav{
 	min-height:5px; /*silly way to avoid doc floating left when nav goes fixed */
 	margin-bottom:1px;
@@ -281,8 +282,7 @@ a.button, a.button:visited, #submit{
 #devdoc-nav.scroll-pane{ position:fixed !important; top:-20px; }
 .admin-bar #devdoc-nav.scroll-pane{ top:8px; }
 #devdoc-nav.scroll-pane .totop{ display:block; }
-
-/* nav */
+#smart-nav-related{ display:none; }
 #smart-nav{
 	/* section header divs */
 	/* expanded section header divs */
@@ -390,8 +390,6 @@ a.button, a.button:visited, #submit{
 #smart-nav li.expanded ul > li li{
 	background:inherit; }
 
-#primary{ float:left; width:800px; margin-left:10px; position:relative; padding-top:15px; }
-
 /* Alignment */
 .alignleft{
 	display:inline;
@@ -450,17 +448,15 @@ cite, em, i{
 	font-style:italic;
 }
 blockquote{
-	font-family:Georgia, "Bitstream Charter", serif;
-	font-style:italic;
-	font-weight:normal;
-	margin:0 2em;
-}
-blockquote em, blockquote i, blockquote cite{
-	font-style:normal;
+	background-color:rgba(99,99,133, .3);
+	-webkit-box-shadow: 0 0 9px rgba(99,99,133, .2);box-shadow: 0 0 9px rgba(99,99,133, .2);
+	padding:5px;font:0.8em;
+	border-left:1px dotted #09F;
+	margin:0 1em; 
 }
 blockquote cite{
 	color:#666;
-	font:12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font:12px;
 	font-weight:300;
 	letter-spacing:0.05em;
 	text-transform:uppercase;
@@ -671,7 +667,7 @@ a:hover{
 	font-size:30px;
 	line-height:1.5em;
 	padding-bottom:.3em;
-        margin:0 0 0 -14px;
+		margin:0 0 0 -14px;
 }
 .entry-title,
 .entry-title a{
@@ -713,11 +709,11 @@ a:hover{
 }
 .entry-content h3,
 .comment-content h3{
-    color:#1193C3;
-    border-left: 1px solid #33B5E5;
-    margin:1em 0 1em -10px;
-    padding-left:5px;
-    font-size:20px;
+	color:#1193C3;
+	border-left: 1px solid #33B5E5;
+	margin:1em 0 1em -10px;
+	padding-left:5px;
+	font-size:20px;
 }
 .entry-content table,
 .comment-content table{
@@ -907,6 +903,8 @@ object{
 .post-password-required input[type=password]:focus{
 	background:#f7f7f7;
 }
+
+/* Author Description*/
 .eweima{
 	width:160px;
 	height:160px;
@@ -954,6 +952,7 @@ object{
 	color:#3c82A0;
 	margin-left:10px;
 }
+/* Sidebars*/
 #sidebar-right{
 	margin-left:1000px;
 	border-left:1px solid #33B5E5;
@@ -1005,23 +1004,10 @@ hgroup .entry-title{
 hgroup .entry-title:before{
 	content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/0lEQVRYw+2Xz0obURTGv++cya5YWk2KRWtBKhJrdaNUBtH6B1wV+ihd9LnyAAUpFVdBWksfwCAmabpRE7tRZrq4M8kMOqm5d5JS6N3cy13c7/edc+bcO8C/PPxKNfQr1dDlDLqIt46/AgBKS8s4fLdidZbnIn6y/zG1ZwNBF3F5+gQAENR/4PnWrlUk6CLOsQcAgPCyYyC2d1F6NRgEXcXNKQTaHQSNFmbe7KC0uHRvCOYhThFQiLB9ZSA2tlBcWLwXBK3FSZAEJAJQAUQQXF4hOGtiZn0TxfLLP0LQWjxyjYS4WaupidMmpv11FOfLfSE4kHiG6xiCqt05vOjgplbH9JqPiRfzmRAcSLyP6xSAZ+bwvI2bkzqmVl5jfHbuTojMRhQ3maDRApstU+kU6LNJyKOHma6va3VAFRSCFEAUZ1+OMD47N1gnXH3/4dbez+/fUDv4BJl4fKfr69NGN+ROrTgrX36lGtYOP0MKXkLcAMAz6375zuUuoCroealcmz0DMPTLiKrdCCAJoArKiABY0ITrdCEO/zpWBQteKv+9WYYPICpRChKuVcCoJww/AhIXYcJ13BNGAcAoArHrLkDUnkdThJ6mXUt0R4ziTUiRHkDsmtZvW8uvQLXn2kHcMgI0eXcUtgdgfuLW/wV5DiuAX/tHfw+gvPcW/0ee4zez97vdlkdusgAAAABJRU5ErkJggg==);
 }
-/*
-Post Formats Headings
+/*Post Formats Headings
 To hide the headings, display: none the ".entry-header .entry-format" selector,
 and remove the padding rules below.
 */
-.format-status img.avatar,#author-info #author-avatar img.avatar{
-	-moz-border-radius:3px;
-	border-radius:3px;
-	-webkit-box-shadow:0 1px 2px #ccc;
-	-moz-box-shadow:0 1px 2px #ccc;
-	box-shadow:0 1px 2px #ccc;
-	float:left;
-	margin:4px 10px 2px 0;
-	padding:0;
-	width:65px !important;
-	height:65px !important;
-}
 .entry-content img.wp-post-image{
 	-moz-border-radius:5px;
 	border-radius:5px;
@@ -1115,7 +1101,7 @@ blockquote.pull.alignright{
 	display:none;
 }
 .format-aside .entry-title{
-        font-size:16px;
+		font-size:16px;
 }
 .singular .format-aside .entry-title{
 	display:block;
@@ -1134,7 +1120,7 @@ blockquote.pull.alignright{
 	display:none;
 }
 .format-link .entry-title{
-        font:12px normal;
+		font:12px normal;
 }
 .singular .format-link .entry-title{
 	display:block;
@@ -1160,7 +1146,18 @@ blockquote.pull.alignright{
 
 /* =Status
 ----------------------------------------------- */
-
+.format-status img.avatar,#author-info #author-avatar img.avatar{
+	-moz-border-radius:3px;
+	border-radius:3px;
+	-webkit-box-shadow:0 1px 2px #ccc;
+	-moz-box-shadow:0 1px 2px #ccc;
+	box-shadow:0 1px 2px #ccc;
+	float:left;
+	margin:4px 10px 2px 0;
+	padding:0;
+	width:65px !important;
+	height:65px !important;
+}
 .format-status .entry-header .comments-link{
 	display:none;
 }
@@ -1192,6 +1189,7 @@ blockquote.pull.alignright{
 .format-quote .entry-title:before{
 	content:"";
 }
+
 /* =Image
 ----------------------------------------------- */
 
@@ -1966,7 +1964,7 @@ p.comment-form-comment{
 @media (max-width: 1216px){
 	/* Simplify the basic layout */
 	#body-content{width:92% !important;}
-	.entry-content img{width:80% !important;max-width:700px !important;height:auto;}
+	.entry-content img{max-width:80% !important;height:auto;}
 	#primary {
 		width: 72%;
 		margin-left: 0px;

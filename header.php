@@ -51,6 +51,7 @@
             echo ' | ' . sprintf(__('Page %s', 'android'), max($paged, $page));
 
         ?></title>
+    <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?> Feed RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
     <link rel="profile" href="http://gmpg.org/xfn/11"/>
     <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_url'); ?>"/>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>"/>
@@ -128,7 +129,7 @@ if(is_home()){
                     </ul>
                     <div class="header">RSS</div>
                     <ul>
-                        <li><a href="<?php bloginfo('rss2_url'); ?>" target="_blank">订阅<?php bloginfo('name'); ?></a></li>
+                        <li><a href="<?php bloginfo('rss2_url');?>" rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?> Feed RSS 2.0"  target="_blank">订阅<?php bloginfo('name'); ?></a></li>
                     </ul>
                 </div>
                 <div class="bottom"></div>

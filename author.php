@@ -90,7 +90,7 @@ get_header(); ?>
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
-						<p><?php _e( 'DFnothingfounddet, 'android' ); ?></p>
+						<p><?php _e( 'DFnothingfounddet', 'android' ); ?></p>
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->
 
