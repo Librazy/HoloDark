@@ -4,7 +4,7 @@ Theme URI: http://im.librazy.org/
 Author: Librazy
 Author URI: http://im.librazy.org/
 Description: HoloDark&Android developer Design.
-Version: 1.0.130907.1119dev
+Version: 1.0.130929.1619stagit
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: dark, holo, gray,  three-columns, left-sidebar, right-sidebar,  custom-background,editor-style, featured-image-header, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, translation-ready
@@ -695,7 +695,7 @@ a:hover{
 }
 .entry-content,
 .entry-summary{
-	padding:1.625em 0 0;
+	padding:1.625em 1em 0;
 }
 .entry-content h1,
 .entry-content h2,
@@ -1996,6 +1996,10 @@ p.comment-form-comment{
 	.entry-header .entry-format{
 		font-size:10px !important;
 		position:static;
+	}
+	#respond{
+		width: 92%;
+		margin-left: 0;
 	}
 }
 @media (max-width: 790px){

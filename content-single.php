@@ -1,4 +1,4 @@
-﻿<?php
+﻿﻿<?php
 /**
  * The template for displaying content in the single.php template
  *
@@ -10,7 +10,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-                <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><h1 class="entry-title"><?php the_title(); ?></h1></a>
+                <h1 class="entry-title"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php android_posted_on(); ?>
