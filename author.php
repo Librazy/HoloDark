@@ -41,29 +41,32 @@ get_header(); ?>
 				
 				<?php
 				// If a user has filled out their description, show a bio on their entries.
-				if ( get_the_author_meta( 'description' ) ) : ?>
-			<div id="author-info" class="vcard">
+		if ( get_the_author_meta( 'description' ) ) : ?>
+		<div id="author-info" class="vcard" itemprop="author"  itemscope itemtype="http://schema.org/Person">
 			<div class="hiddenvc">
-				<span class="fn"><?php echo get_the_author_meta( 'display_name' );?></span>
-				<span class="email"><?php echo get_the_author_meta( 'user_email' );?></span>
-				<span class="url"><?php echo get_the_author_meta( 'user_url' );?></span>
-                        </div>
+				<span class="fn" itemprop="name"><?php echo get_the_author_meta( 'display_name' );?></span>
+				<span class="email" itemprop="email"><?php echo get_the_author_meta( 'user_email' );?></span>
+				<span class="url" itemprop="url"><?php echo get_the_author_meta( 'user_url' );?></span>
+            </div>
 			<div id="author-description">
-				<div id="author-avatar">
+				<div id="author-avatar" itemprop="image">
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'android_author_bio_avatar_size', 68 ) ); ?>
 				</div><!-- #author-avatar -->
 				<h2><span>A</span><?php printf(  'bout %s', get_the_author() ); ?></h2>
-				<div class="auteweima">
+				<?php if ($blogOption['show_qr']) : ?>
+				<div class="autqrcode">
 				<img src="<?php echo holodark_generate_qr(wp_get_shortlink()); ?> " width="160" height="160" alt="二维码" rel="nofollow noindex" />
-				</div><!-- .erweima -->
-				<div id="autauthor-description-content"><?php the_author_meta( 'description' ); ?></div>
+				</div><!-- .qrcode -->
+				<?php endif; ?> 
+				<div id="autauthor-description-content" itemprop="description"><?php the_author_meta( 'description' ); ?></div>
 				<div id="author-link">
-					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"  class="url">
+					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"  class="url" itemprop="url">
 						<?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'HD' ), get_the_author() ); ?>
 					</a>
 				</div><!-- #author-link	-->
 			</div><!-- #author-description -->
 		</div><!-- #author-info -->
+		<?php endif; ?>
 		<br /><br />
 				<?php endif; ?>
 

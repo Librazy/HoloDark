@@ -15,10 +15,10 @@ Template Name:博文格式：日志
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>  itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<header class="entry-header">
-			<span>
+		<div class="hgroup">
 				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( __('%s 的链接','HD'), esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 				<h3 class="entry-format"><?php _e( 'Aside', 'HD' ); ?></h3>
-			</span>
+		</div>
 
 			<?php if ( comments_open() && ! post_password_required() ) : ?>
 			<div class="comments-link">

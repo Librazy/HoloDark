@@ -472,3 +472,63 @@ remove_action( 'wp_head', 'rsd_link' );
 remove_action( 'wp_head', 'wlwmanifest_link'); 
 remove_action( 'wp_head', 'wp_print_head_scripts', 9 );
 remove_action( 'wp_head', 'wp_enqueue_scripts', 1 );
+
+
+class hdoptions {
+	static function getopts() {
+		$options = get_option('HoloDark_options');
+		if (!is_array($options)) {
+			$options['show_qr'] = '1';
+			$options['show_autmeta']  = '1';
+			update_option('HoloDark_options', $options);
+		}
+		return $options;
+	}
+
+	static function init() {
+		if(isset($_POST['holodark_save'])) {
+			$options = hdoptions::getopts();
+			$options['show_qr'] = !(!($_POST['show_qr']));
+			$options['show_autmeta'] = !(!($_POST['show_autmeta']));
+			update_option('HoloDark_options', $options);
+			echo '<div class="updated"><p><strong>' .'设置成功' . '</strong></p></div>';
+		} else {
+			hdoptions::getopts();
+		}
+		add_theme_page("HoloDark 主题设置", "HoloDark 主题设置", 'edit_themes', basename(__FILE__), array('hdoptions', 'display'));
+	}
+
+	static function display() {
+		$options = hdoptions::getopts();
+?>
+<form action="#" method="post" enctype="multipart/form-data" name="holodark_form" id="holodark_form">
+<div class="wrap">
+	<h2>HoloDark 主题设置</h2>
+		<h3>显示设置</h3>
+		<div class="settings">
+			<label for="show_autmeta">显示作者信息：</label>
+			<input id="show_autmeta" name="show_autmeta" type="checkbox" <?php if($options['show_autmeta'])echo 'checked="checked"'?>>
+			<span class="description">选中则启用显示作者信息</span>
+		</div>
+		<div class="settings">
+			<label for="show_qr">显示QR码：（需显示作者信息）</label>
+			<input id="show_qr" name="show_qr" type="checkbox" <?php if($options['show_qr'])echo 'checked="checked"'?>>
+			<span class="description">选中则启用自动生成QR码</span>
+		</div>
+		<!-- 提交按钮 -->
+		<p class="submit">
+			<input type="submit" name="holodark_save" class="button button-primary" value="更新设置" />
+		</p>
+</div>
+</form>
+<?php
+	}
+}
+
+//登记初始化方法
+add_action('admin_menu', array('hdoptions', 'init'));
+
+//引用
+$blogOption = hdoptions::getopts();
+
+?>

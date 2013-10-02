@@ -1,4 +1,5 @@
 ﻿﻿<?php
+$blogOption = hdoptions::getopts();
 /*
 Template Name:博文格式：普通
 */
@@ -73,7 +74,7 @@ Template Name:博文格式：普通
 			);
 		?>
 
-		<?php if ( get_the_author_meta( 'description' ) && ( ! function_exists( 'is_multi_author' ) || is_multi_author() ) ): // If a user has filled out their description and this is a multi-author blog, show a bio on their entries ?>
+		<?php if ($blogOption['show_autmeta'] ):  ?>
 		<div id="author-info" class="vcard" itemprop="author"  itemscope itemtype="http://schema.org/Person">
 			<div class="hiddenvc">
 				<span class="fn" itemprop="name"><?php echo get_the_author_meta( 'display_name' );?></span>
@@ -85,13 +86,14 @@ Template Name:博文格式：普通
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'android_author_bio_avatar_size', 68 ) ); ?>
 				</div><!-- #author-avatar -->
 				<h2><span>A</span><?php printf( __( 'bout %s', 'HD' ), get_the_author() ); ?></h2>
-				<div class="eweima">
-					<!--<img src="http://catqr.yiduqiang.com/cat/ys/average.php?bj_16_color=FFFFFF&bbj=&logoIMGtoBJ=img/2012/12/08/f93de05c9647b9a592e94756cf7566ed.png&ewm_16_color=000000&yj=Y&cw=H&width=10&JZurl=&JZx=&JZy=&txt=<?php echo wp_get_shortlink(); ?>" width="160" height="160" alt="大猫二维码" rel="nofollow noindex" />-->
-                                        <img src="<?php echo holodark_generate_qr(wp_get_shortlink()); ?>" width="160" height="160" alt="二维码" rel="nofollow noindex" />
-				</div><!-- .erweima -->
+				<?php if ($blogOption['show_qr']) : ?>
+				<div class="qrcode">
+					<img src="<?php echo holodark_generate_qr(wp_get_shortlink()); ?>" width="160" height="160" alt="二维码" rel="nofollow noindex" />
+				</div><!-- .qrcode -->
+				<?php endif; ?> 
 				<div id="author-description-content" itemprop="description"><?php the_author_meta( 'description' ); ?></div>
 				<div id="author-link">
-					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author" class="url">
+					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author" class="url" itemprop="url">
 						<?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'HD' ), get_the_author() ); ?>
 					</a>
 					<br/>

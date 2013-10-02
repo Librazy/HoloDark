@@ -1,4 +1,5 @@
 <?php
+$blogOption = hdoptions::getopts();
 /*
 Template Name:博文格式：页面
 */
@@ -55,12 +56,14 @@ Template Name:博文格式：页面
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'android_author_bio_avatar_size', 68 ) ); ?>
 				</div><!-- #author-avatar -->
 				<h2><span>A</span><?php printf( __( 'bout %s', 'HD' ), get_the_author() ); ?></h2>
-				<div class="eweima">
+				<?php if ($blogOption['show_qr']) : ?>
+				<div class="qrcode">
 					<img src="<?php echo holodark_generate_qr(get_permalink()); ?>" width="160" height="160" alt="二维码" rel="nofollow noindex" />
-				</div><!-- .erweima -->
+				</div><!-- .qrcode -->
+				<?php endif; ?> 
 				<div id="author-description-content" itemprop="description"><?php the_author_meta( 'description' ); ?></div>
 				<div id="author-link">
-					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"  class="url">
+					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"  class="url" itemprop="url">
 						<?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'HD' ), get_the_author() ); ?>
 					</a>
 				</div><!-- #author-link	-->

@@ -11,7 +11,7 @@
 ?>
 <?php if ( is_sidebar_active('static')||is_sidebar_active('fix') ) : ?>
 <div  id="sidebar-right" class="wrap">
-<ul id="sidebar">
+<div id="sidebar">
 <?php if ( is_sidebar_active('static') ) : ?>
                 <div id="staticsidebar">
                         <ul>
@@ -29,7 +29,7 @@
                         </ul>
                 </div>
 <?php endif; ?>
-</ul>
+</div>
 </div>
 <?php endif; ?>
 

@@ -68,13 +68,13 @@ if(is_home()){
         <?php
 //list terms in a given taxonomy using wp_list_categories (also useful as a widget if using a PHP Code plugin)
         $categories = get_the_category(); //get all categories for this post
-	if(is_home()){
+	if(is_home()||is_page()||is_author()){
 	    $args = array(
-            	'orderby' => 'id',
-          	  'show_count' => 0,
-          	  'pad_counts' => 0,
-         	  'hierarchical' => 1,
-		  'depth' => 1,
+            'orderby' => 'id',
+          	'show_count' => 0,
+          	'pad_counts' => 0,
+         	'hierarchical' => 1,
+			'depth' => 1,
             'title_li' => ''
         );
 	}else{

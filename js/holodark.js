@@ -21,6 +21,7 @@ function searchActive() {
     $("#search-container").addClass("active");
     $("#s").focus().blur(function () {
         $("#search-container").removeClass("active");
+		$("#search_filtered").fadeOut();
     });
 }
 $("#search-container").mouseover(function () {
@@ -269,7 +270,9 @@ addComment = {moveForm:function (d, f, i, c) {
     return document.getElementById(a)
 }};
 
-
+$(".morehover").click(function () {
+    $(this).toggleClass("hover")
+});
 $(".morehover").hover(function () {
     $(this).toggleClass("hover")
 });

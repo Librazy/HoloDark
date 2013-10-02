@@ -15,10 +15,10 @@ Template Name:博文格式：相册
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>  itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 	<header class="entry-header">
-		<span>
+	<div class="hgroup">
 			<h2 class="entry-title" itemprop="headline"><a href="<?php the_permalink(); ?>" title="<?php printf( __('%s 的链接','HD'), esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 			<h3 class="entry-format"><?php _e( 'Gallery', 'HD' ); ?></h3>
-		</span>
+	</div>
 
 		<div class="entry-meta">
 			<?php android_posted_on(); ?>
