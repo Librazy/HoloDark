@@ -1,22 +1,6 @@
 <?php
 
 $is_ad = false; // 庙的广告,默认关闭
-define('DFenableautmeta', true);
-define('DFsearch', '%s 的搜索结果');
-define('DFsearch_nothing_match', '神马都米有，呵呵');
-define('DFpost_navigation', '文章导航');
-define('DFolderposts', 'Older Posts');
-define('DFnewerposts', 'Newer Posts');
-define('DFrecentposts', 'Recent Posts');
-define('DFreply', '评论 ');
-define('DFlevreply', '评论 ');
-define('DFareply', '沙发已占');
-define('DFreplies', '<b>%</b> 条吐槽');
-define('DFmoderation', '评论审核中');
-define('DFpermalink', '%s 的链接');
-define('DFcontreading',  '继续阅读<span class="meta-nav">&rarr;</span>');
-define('DFnothingfound', 'Nothing Found');
-define('DFnothingfounddet', '对不起，没有符合条件的文章，尝试搜索获取更多信息');
 add_theme_support( 'post-thumbnails', array( 'post', 'movie' ) );
 add_theme_support( 'post-formats', array( 'aside', 'gallery','chat','link','image','quote','status','video'));
 function console($log){
@@ -37,12 +21,12 @@ if (!function_exists('android_content_nav')
 
         if ($wp_query->max_num_pages > 1) : ?>
         <nav id="<?php echo $nav_id; ?>">
-            <h3 class="assistive-text"><?php _e(DFpost_navigation, 'android'); ?></h3>
+            <h3 class="assistive-text"><?php _e('文章导航', 'HD'); ?></h3>
 
             <div
-                class="nav-previous"><?php next_posts_link(__(sprintf('<span class="meta-nav">&larr;</span> %s',DFolderposts), 'android')); ?></div>
+                class="nav-previous"><?php next_posts_link(__(sprintf('<span class="meta-nav">&larr;</span> %s','Older Posts'), 'HD')); ?></div>
             <div
-                class="nav-next"><?php previous_posts_link(__(sprintf('%s <span class="meta-nav">&rarr;</span>',DFnewerposts), 'android')); ?></div>
+                class="nav-next"><?php previous_posts_link(__(sprintf('%s <span class="meta-nav">&rarr;</span>','Newer Posts'), 'HD')); ?></div>
         </nav><!-- #nav-above -->
         <?php endif;
     }
@@ -83,7 +67,7 @@ if (!function_exists('android_comment')
             case 'trackback' :
                 ?>
 	<li class="post pingback">
-		<p><?php _e('Pingback:', 'android'); ?> <?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'android'), '<span class="edit-link">', '</span>'); ?></p>
+		<p><?php _e('Pingback:', 'HD'); ?> <?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'HD'), '<span class="edit-link">', '</span>'); ?></p>
                     <?php
                 break;
             default :
@@ -100,23 +84,23 @@ if (!function_exists('android_comment')
                                 echo get_avatar($comment, $avatar_size);
 
                                 /* translators: 1: comment author, 2: date and time */
-                                printf(__('%1$s on %2$s <span class="says">said:</span>', 'android'),
+                                printf(__('%1$s on %2$s <span class="says">said:</span>', 'HD'),
                                     sprintf('<span class="fn">%s</span>', get_comment_author_link()),
                                     sprintf('<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
                                         esc_url(get_comment_link($comment->comment_ID)),
                                         get_comment_time('c'),
                                         /* translators: 1: date, 2: time */
-                                        sprintf(__('%1$s at %2$s', 'android'), get_comment_date(), get_comment_time())
+                                        sprintf(__('%1$s at %2$s', 'HD'), get_comment_date(), get_comment_time())
                                     )
                                 );
                                 ?>
 
-                                <?php edit_comment_link(__('Edit', 'android'), '<span class="edit-link">', '</span>'); ?>
+                                <?php edit_comment_link(__('Edit', 'HD'), '<span class="edit-link">', '</span>'); ?>
                             </div>
                             <!-- .comment-author .vcard -->
 
                             <?php if ($comment->comment_approved == '0') : ?>
-                            <em class="comment-awaiting-moderation"><?php _e(DFmoderation, 'android'); ?></em>
+                            <em class="comment-awaiting-moderation"><?php _e('评论审核中', 'HD'); ?></em>
                             <br/>
                             <?php endif; ?>
 
@@ -125,7 +109,7 @@ if (!function_exists('android_comment')
                         <div class="comment-content"><?php comment_text(); ?></div>
 
                         <div class="reply">
-                            <?php comment_reply_link(array_merge($args, array('reply_text' => __(sprintf('%s <span>&darr;</span>',DFreply), 'android'), 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
+                            <?php comment_reply_link(array_merge($args, array('reply_text' => __(sprintf('%s <span>&darr;</span>','评论'), 'HD'), 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
                         </div>
                         <!-- .reply -->
                     </article>
@@ -147,13 +131,13 @@ if (!function_exists('android_posted_on')
      */
     function android_posted_on()
     {
-        printf(__('<span class="sep">Posted on </span><time class="entry-date" datetime="%3$s" pubdate>%4$s</time><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'android'),
+        printf(__('<span class="sep">Posted on </span><time class="entry-date" datetime="%3$s" pubdate>%4$s</time><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'HD'),
             esc_url(get_permalink()),
             esc_attr(get_the_time()),
             esc_attr(get_the_date('c')),
             esc_html(get_the_date()),
             esc_url(get_author_posts_url(get_the_author_meta('ID'))),
-            esc_attr(sprintf(__('View all posts by %s', 'android'), get_the_author())),
+            esc_attr(sprintf(__('View all posts by %s', 'HD'), get_the_author())),
             get_the_author()
         );
     }
@@ -471,8 +455,17 @@ function is_sidebar_active( $index ){
   if ($widgetcolums[$index]) return true;
   return false;
 }
-
+function holodark_l18n()
+{
+	load_theme_textdomain('HD', get_template_directory() . '/languages');
+ }
+ require_once(get_template_directory() . '/theme-updates/theme-update-checker.php'); 
+$HD_update_checker = new ThemeUpdateChecker(
+	'HoloDark', 
+	'http://im.librazy.org/holodark/info.json' 
+);
 add_action( 'init', 'holodark_init_sidebar' );
+add_action('after_setup_theme', 'holodark_l18n');
 remove_action ('wp_head', 'wp_generator');
 remove_action( 'wp_head', 'rsd_link' );   
 remove_action( 'wp_head', 'wlwmanifest_link'); 

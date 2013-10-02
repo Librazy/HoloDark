@@ -26,10 +26,10 @@ get_header(); ?>
 			<?php else : ?>
 				<article id="post-0" class="post no-results not-found">
 					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( DFnothingfound, 'android' ); ?></h1>
+						<h1 class="entry-title"><?php _e( 'Nothing Found', 'HD' ); ?></h1>
 					</header><!-- .entry-header -->
 					<div class="entry-content">
-						<p><?php _e(DFnothingfounddet, 'android' ); ?></p>
+						<p><?php _e( '对不起，没有符合条件的文章，尝试搜索获取更多信息', 'HD' ); ?></p>
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->
 			<?php endif; ?>

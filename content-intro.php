@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name:页面模版：intro
+*/
 /**
  * The template for displaying page content in the showcase.php page template
  *
@@ -15,6 +18,6 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'android' ) . '</span>', 'after' => '</div>' ) ); ?>
+		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'HD' ) . '</span>', 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->

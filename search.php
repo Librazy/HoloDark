@@ -26,7 +26,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
         <?php if (have_posts()) : ?>
 
         <header class="page-header">
-            <h1 class="page-title"><?php printf(__(DFsearch, 'android'), '<span>' . get_search_query() . '</span>'); ?></h1>
+            <h1 class="page-title"><?php printf(__('%s 的搜索结果', 'HD'), '<span>' . get_search_query() . '</span>'); ?></h1>
         </header>
 
         <?php android_content_nav('nav-above'); ?>
@@ -50,12 +50,12 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
 
         <article id="post-0" class="post no-results not-found">
             <header class="entry-header">
-                <h1 class="entry-title"><?php _e(DFnothingfound, 'android'); ?></h1>
+                <h1 class="entry-title"><?php _e('Nothing Found', 'HD'); ?></h1>
             </header>
             <!-- .entry-header -->
             <div class="entry-content">
-                <p><?php _e(DFsearch_nothing_match, 'android'); ?></p>
-                <h2><?php printf(DFrecentposts);?></h2>
+                <p><?php _e('神马都米有，呵呵', 'HD'); ?></p>
+                <h2><?php printf('Recent Posts');?></h2>
 	   </div>   <!-- .entry-content -->
          </article><!-- #post-0 -->	<?query_posts('posts_per_page=5');?>
 	

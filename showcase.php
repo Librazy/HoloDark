@@ -74,7 +74,7 @@ get_header(); ?>
 				?>
 
 				<div class="featured-posts">
-					<h1 class="showcase-heading"><?php _e( 'Featured Post', 'android' ); ?></h1>
+					<h1 class="showcase-heading"><?php _e( 'Featured Post', 'HD' ); ?></h1>
 
 				<?php
 					// Let's roll.
@@ -117,7 +117,7 @@ get_header(); ?>
 								else
 									$thumbnail_size = 'small-feature';
 								?>
-								<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( DFpermalink, 'android' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_post_thumbnail( $thumbnail_size ); ?></a>
+								<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( __('%s 的链接','HD'), 'HD' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_post_thumbnail( $thumbnail_size ); ?></a>
 								<?php
 							}
 						?>
@@ -147,7 +147,7 @@ get_header(); ?>
 							else
 								$class = '';
 				    	?>
-						<li><a href="#featured-post-<?php echo $counter_slider; ?>" title="<?php printf( esc_attr__( 'Featuring: %s', 'android' ), the_title_attribute( 'echo=0' ) ); ?>" <?php echo $class; ?>></a></li>
+						<li><a href="#featured-post-<?php echo $counter_slider; ?>" title="<?php printf( esc_attr__( 'Featuring: %s', 'HD' ), the_title_attribute( 'echo=0' ) ); ?>" <?php echo $class; ?>></a></li>
 					<?php endwhile;	?>
 					</ul>
 				</nav>
@@ -157,7 +157,7 @@ get_header(); ?>
 				<?php endif; // End check for sticky posts. ?>
 
 				<section class="recent-posts">
-					<h1 class="showcase-heading"><?php _e( DFrecentposts, 'android' ); ?></h1>
+					<h1 class="showcase-heading"><?php _e( 'Recent Posts', 'HD' ); ?></h1>
 
 					<?php
 
@@ -196,9 +196,9 @@ get_header(); ?>
 					while ( $recent->have_posts() ) : $recent->the_post(); ?>
 
 						<li class="entry-title">
-							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( DFpermalink, 'android' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( __('%s 的链接','HD'), 'HD' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 							<span class="comments-link">
-								<?php comments_popup_link( '<span class="leave-reply">' . __(DFreply, 'android' ) . '</span>', __( DFareply, 'android' ), __( DFreplies, 'android' ) ); ?>
+								<?php comments_popup_link( '<span class="leave-reply">' . __( '评论', 'HD' ) . '</span>', __( '沙发已占', 'HD' ), __('<b>%</b> 条吐槽', 'HD' ) ); ?>
 							</span>
 						</li>
 

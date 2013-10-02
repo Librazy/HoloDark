@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name:博文格式：页面
+*/
 /**
  * The template used for displaying page content in page.php
  *
@@ -36,14 +39,14 @@
 
         // Add a page number if necessary:
         if ($paged >= 2 || $page >= 2)
-            echo ' | ' . sprintf(__('Page %s', 'android'), max($paged, $page));
+            echo ' | ' . sprintf(__('Page %s', 'HD'), max($paged, $page));
 
         ?>"
             trackback:ping="<?php bloginfo('pingback_url'); ?>" />
         </rdf:RDF>-->
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'android' ) . '</span>', 'after' => '</div>' ) ); ?>
+		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'HD' ) . '</span>', 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 	<footer class="entry-meta">
 <div id="author-info" class="vcard">
@@ -56,14 +59,14 @@
 				<div id="author-avatar">
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'android_author_bio_avatar_size', 68 ) ); ?>
 				</div><!-- #author-avatar -->
-				<h2><span>A</span><?php printf( __( 'bout %s', 'android' ), get_the_author() ); ?></h2>
+				<h2><span>A</span><?php printf( __( 'bout %s', 'HD' ), get_the_author() ); ?></h2>
 				<div class="eweima">
 					<img src="<?php echo holodark_generate_qr(get_permalink()); ?>" width="160" height="160" alt="二维码" rel="nofollow noindex" />
 				</div><!-- .erweima -->
 				<div id="author-description-content"><?php the_author_meta( 'description' ); ?></div>
 				<div id="author-link">
 					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"  class="url">
-						<?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'android' ), get_the_author() ); ?>
+						<?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'HD' ), get_the_author() ); ?>
 					</a>
 				</div><!-- #author-link	-->
 			</div><!-- #author-description -->

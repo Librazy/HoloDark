@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name:博文格式：状态
+*/
 /**
  * The template for displaying posts in the Status Post Format on index and archive pages
  *
@@ -12,13 +15,13 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
 			<hgroup>
-				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( DFpermalink, esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-				<h3 class="entry-format"><?php _e( 'Status', 'android' ); ?></h3>
+				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( __('%s 的链接','HD'),esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+				<h3 class="entry-format"><?php _e( 'Status', 'HD' ); ?></h3>
 			</hgroup>
 
 			<?php if ( comments_open() && ! post_password_required() ) : ?>
 			<div class="comments-link">
-				<?php comments_popup_link( '<span class="leave-reply">' . __( DFreply, 'android' ) . '</span>', _x( '1', 'comments number', 'android' ), _x( '%', 'comments number', 'android' ) ); ?>
+				<?php comments_popup_link( '<span class="leave-reply">' . __('评论', 'HD' ) . '</span>', __( '沙发已占', 'HD' ), __( '<b>%</b> 条吐槽', 'HD' ) ); ?>
 			</div>
 			<?php endif; ?>
 		</header><!-- .entry-header -->
@@ -30,8 +33,8 @@
 		<?php else : ?>
 		<div class="entry-content">
 			<div class="avatar"><?php echo get_avatar( get_the_author_meta( 'ID' ), apply_filters( 'android_status_avatar', '65' ) ); ?></div>
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'android' ) ); ?>
-			<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'android' ) . '</span>', 'after' => '</div>' ) ); ?>
+			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'HD' ) ); ?>
+			<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'HD' ) . '</span>', 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 		<?php endif; ?>
 
@@ -39,7 +42,7 @@
 			<?php android_posted_on(); ?>
 			<?php if ( comments_open() ) : ?>
 			<span class="sep"> | </span>
-			<span class="comments-link"><?php comments_popup_link( '<span class="leave-reply">' . __(DFreply, 'android' ) . '</span>', __( DFareply, 'android' ), __( DFreplies, 'android' ) ); ?></span>
+			<span class="comments-link"><?php comments_popup_link( '<span class="leave-reply">' . __('评论', 'HD' ) . '</span>', __( '沙发已占', 'HD' ), __( '<b>%</b> 条吐槽', 'HD' ) ); ?></span>
 			<?php endif; ?>
 		</footer><!-- #entry-meta -->
 	</article><!-- #post-<?php the_ID(); ?> -->

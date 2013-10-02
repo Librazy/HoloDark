@@ -12,10 +12,10 @@
         <div id="search-btn"></div>
         <div class="left"></div>
         <form method="get" id="searchform" action="<?php echo esc_url(home_url('/')); ?>">
-            <input type="text" value="" autocomplete="off" placeholder="<?php esc_attr_e('Search', 'android'); ?>"
+            <input type="text" value="" autocomplete="off" placeholder="<?php esc_attr_e('Search', 'HD'); ?>"
                    name="s" id="s"  x-webkit-speech="x-webkit-speech" />
             <input type="submit" class="submit" name="submit" id="searchsubmit"
-                   value="<?php esc_attr_e('Search', 'android'); ?>"/>
+                   value="<?php esc_attr_e('Search', 'HD'); ?>"/>
         </form>
         <div class="right"></div>
         <a class="close ui-hide">close</a>

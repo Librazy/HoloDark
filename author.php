@@ -26,7 +26,7 @@ get_header(); ?>
 				?>
 
 				<header class="page-header">
-					<h1 class="page-title author"><?php printf( __( 'Author Archives: %s', 'android' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
+					<h1 class="page-title author"><?php printf( __( 'Author Archives: %s', 'HD' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
 				</header>
 
 				<?php
@@ -59,7 +59,7 @@ get_header(); ?>
 				<div id="autauthor-description-content"><?php the_author_meta( 'description' ); ?></div>
 				<div id="author-link">
 					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"  class="url">
-						<?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'android' ), get_the_author() ); ?>
+						<?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'HD' ), get_the_author() ); ?>
 					</a>
 				</div><!-- #author-link	-->
 			</div><!-- #author-description -->
@@ -86,11 +86,11 @@ get_header(); ?>
 
 				<article id="post-0" class="post no-results not-found">
 					<header class="entry-header">
-						<h1 class="entry-title"><?php _e(DFnothingfound, 'android' ); ?></h1>
+						<h1 class="entry-title"><?php _e('Nothing Found', 'HD' ); ?></h1>
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
-						<p><?php _e( DFnothingfounddet, 'android' ); ?></p>
+						<p><?php _e(  '对不起，没有符合条件的文章，尝试搜索获取更多信息', 'HD' ); ?></p>
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->
 

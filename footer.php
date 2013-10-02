@@ -43,9 +43,9 @@
 <?php endif; ?>        
         <?php do_action('android_credits'); ?>
         <?php bloginfo('description'); ?>.
-        <a href="<?php echo esc_url(__('http://wordpress.org/', 'android')); ?>"
-           title="<?php esc_attr_e('Semantic Personal Publishing Platform', 'android'); ?>"
-           target="_blank"><?php printf(__('%s', 'android'), 'WordPress'); ?></a>
+        <a href="<?php echo esc_url(__('http://wordpress.org/', 'HD')); ?>"
+           title="<?php esc_attr_e('Semantic Personal Publishing Platform', 'HD'); ?>"
+           target="_blank"><?php printf(__('%s', 'HD'), 'WordPress'); ?></a>
         &amp;&amp; <a href="http://ooxx.me/theme-android.orz" title="Android Developer Style Theme" target="_blank">Android</a>
 	 &amp;&amp; <a href="http://im.librazy.org/wordpress-holodark/" title="HoloDark Theme" target="_blank">HoloDark</a>
     </div>

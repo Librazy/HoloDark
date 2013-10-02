@@ -1,5 +1,7 @@
 <?php
-
+/*
+Template Name:QR码生成器
+*/
 /*
  * PHP QR Code encoder
  *

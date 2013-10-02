@@ -48,7 +48,7 @@
 
         // Add a page number if necessary:
         if ($paged >= 2 || $page >= 2)
-            echo ' | ' . sprintf(__('Page %s', 'android'), max($paged, $page));
+            echo ' | ' . sprintf(__('Page %s', 'HD'), max($paged, $page));
 
         ?></title>
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?> Feed RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />

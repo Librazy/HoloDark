@@ -15,9 +15,9 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<nav id="nav-single">
-					<h3 class="assistive-text"><?php _e( 'Image navigation', 'android' ); ?></h3>
-					<span class="nav-previous"><?php previous_image_link( false, __( '&larr; Previous' , 'android' ) ); ?></span>
-					<span class="nav-next"><?php next_image_link( false, __( 'Next &rarr;' , 'android' ) ); ?></span>
+					<h3 class="assistive-text"><?php _e( 'Image navigation', 'HD' ); ?></h3>
+					<span class="nav-previous"><?php previous_image_link( false, __( '&larr; Previous' , 'HD' ) ); ?></span>
+					<span class="nav-next"><?php next_image_link( false, __( 'Next &rarr;' , 'HD' ) ); ?></span>
 				</nav><!-- #nav-single -->
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -27,7 +27,7 @@ get_header(); ?>
 							<div class="entry-meta">
 								<?php
 									$metadata = wp_get_attachment_metadata();
-									printf( __( '<span class="meta-prep meta-prep-entry-date">Published </span> <span class="entry-date"><abbr class="published" title="%1$s">%2$s</abbr></span> at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a> in <a href="%6$s" title="Return to %7$s" rel="gallery">%8$s</a>', 'android' ),
+									printf( __( '<span class="meta-prep meta-prep-entry-date">Published </span> <span class="entry-date"><abbr class="published" title="%1$s">%2$s</abbr></span> at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a> in <a href="%6$s" title="Return to %7$s" rel="gallery">%8$s</a>', 'HD' ),
 										esc_attr( get_the_time() ),
 										get_the_date(),
 										esc_url( wp_get_attachment_url() ),
@@ -38,7 +38,7 @@ get_header(); ?>
 										get_the_title( $post->post_parent )
 									);
 								?>
-								<?php edit_post_link( __( 'Edit', 'android' ), '<span class="edit-link">', '</span>' ); ?>
+								<?php edit_post_link( __( 'Edit', 'HD' ), '<span class="edit-link">', '</span>' ); ?>
 							</div><!-- .entry-meta -->
 
 						</header><!-- .entry-header -->
@@ -87,7 +87,7 @@ get_header(); ?>
 
 							<div class="entry-description">
 								<?php the_content(); ?>
-								<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'android' ) . '</span>', 'after' => '</div>' ) ); ?>
+								<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'HD' ) . '</span>', 'after' => '</div>' ) ); ?>
 							</div><!-- .entry-description -->
 
 						</div><!-- .entry-content -->
