@@ -10,7 +10,7 @@
 get_header(); ?>
 
 		<div id="primary" class="image-attachment">
-			<div id="content" role="main">
+			<div id="content" role="main" itemprop="Photograph" itemscope itemtype="http://schema.org/Photograph">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
@@ -22,12 +22,12 @@ get_header(); ?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 						<header class="entry-header">
-							<h1 class="entry-title"><?php the_title(); ?></h1>
+							<h1 class="entry-title" itemprop="headline"><?php the_title(); ?></h1>
 
 							<div class="entry-meta">
 								<?php
 									$metadata = wp_get_attachment_metadata();
-									printf( __( '<span class="meta-prep meta-prep-entry-date">Published </span> <span class="entry-date"><abbr class="published" title="%1$s">%2$s</abbr></span> at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a> in <a href="%6$s" title="Return to %7$s" rel="gallery">%8$s</a>', 'HD' ),
+									printf( __( '<span class="meta-prep meta-prep-entry-date">Published </span> <meta itemprop="datePublished" content="%9$s"><span class="entry-date"><abbr class="published" title="%1$s">%2$s</abbr></span> at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a> in <a href="%6$s" title="Return to %7$s" rel="gallery">%8$s</a>', 'HD' ),
 										esc_attr( get_the_time() ),
 										get_the_date(),
 										esc_url( wp_get_attachment_url() ),
@@ -35,10 +35,10 @@ get_header(); ?>
 										$metadata['height'],
 										esc_url( get_permalink( $post->post_parent ) ),
 										esc_attr( strip_tags( get_the_title( $post->post_parent ) ) ),
-										get_the_title( $post->post_parent )
+										get_the_title( $post->post_parent ),
+										the_time('Y-m-d');
 									);
 								?>
-								<?php edit_post_link( __( 'Edit', 'HD' ), '<span class="edit-link">', '</span>' ); ?>
 							</div><!-- .entry-meta -->
 
 						</header><!-- .entry-header -->
@@ -85,7 +85,7 @@ get_header(); ?>
 
 							</div><!-- .entry-attachment -->
 
-							<div class="entry-description">
+							<div class="entry-description" itemprop="description">
 								<?php the_content(); ?>
 								<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'HD' ) . '</span>', 'after' => '</div>' ) ); ?>
 							</div><!-- .entry-description -->

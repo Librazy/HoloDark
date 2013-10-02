@@ -12,7 +12,7 @@ Template Name:博文格式：置顶
 
 global $feature_class;
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( $feature_class ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( $feature_class ); ?>  itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 	<header class="entry-header">
 			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( __('%s 的链接','HD'), esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 		<div class="entry-meta">

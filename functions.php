@@ -73,7 +73,7 @@ if (!function_exists('android_comment')
             default :
                 ?>
                 <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-                    <article id="comment-<?php comment_ID(); ?>" class="comment">
+                    <article id="comment-<?php comment_ID(); ?>" class="comment" itemprop="comment" itemscope itemtype="http://schema.org/UserComments">
                         <footer class="comment-meta">
                             <div class="comment-author vcard">
                                 <?php
@@ -85,8 +85,8 @@ if (!function_exists('android_comment')
 
                                 /* translators: 1: comment author, 2: date and time */
                                 printf(__('%1$s on %2$s <span class="says">said:</span>', 'HD'),
-                                    sprintf('<span class="fn">%s</span>', get_comment_author_link()),
-                                    sprintf('<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
+                                    sprintf('<span class="fn" itemprop="creator">%s</span>', get_comment_author_link()),
+                                    sprintf('<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
                                         esc_url(get_comment_link($comment->comment_ID)),
                                         get_comment_time('c'),
                                         /* translators: 1: date, 2: time */
@@ -106,7 +106,7 @@ if (!function_exists('android_comment')
 
                         </footer>
 
-                        <div class="comment-content"><?php comment_text(); ?></div>
+                        <div class="comment-content" itemprop="commentText"><?php comment_text(); ?></div>
 
                         <div class="reply">
                             <?php comment_reply_link(array_merge($args, array('reply_text' => __(sprintf('%s <span>&darr;</span>','评论'), 'HD'), 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
@@ -131,14 +131,15 @@ if (!function_exists('android_posted_on')
      */
     function android_posted_on()
     {
-        printf(__('<span class="sep">Posted on </span><time class="entry-date" datetime="%3$s" pubdate>%4$s</time><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'HD'),
+        printf(__('<meta itemprop="datePublished" content="%8$s"><span class="sep">Posted on </span><time class="entry-date" datetime="%3$s">%4$s</time><span class="by-author"> <span class="sep"> by </span> <span class="author vcard" itemprop="author"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'HD'),
             esc_url(get_permalink()),
             esc_attr(get_the_time()),
             esc_attr(get_the_date('c')),
             esc_html(get_the_date()),
             esc_url(get_author_posts_url(get_the_author_meta('ID'))),
             esc_attr(sprintf(__('View all posts by %s', 'HD'), get_the_author())),
-            get_the_author()
+            get_the_author(),
+			get_the_time('Y-m-d')
         );
     }
 endif;

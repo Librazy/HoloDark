@@ -15,7 +15,7 @@
 get_header(); ?>
 
 		<section id="primary">
-			<div id="content" role="main">
+			<div id="content" role="main" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 
 			<?php if ( have_posts() ) : ?>
 

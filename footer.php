@@ -42,7 +42,7 @@
                 </div>
 <?php endif; ?>        
         <?php do_action('android_credits'); ?>
-        <?php bloginfo('description'); ?>.
+        <span itemprop="description"><?php bloginfo('description'); ?></span>.
         <a href="<?php echo esc_url(__('http://wordpress.org/', 'HD')); ?>"
            title="<?php esc_attr_e('Semantic Personal Publishing Platform', 'HD'); ?>"
            target="_blank"><?php printf(__('%s', 'HD'), 'WordPress'); ?></a>

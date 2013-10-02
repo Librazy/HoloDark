@@ -7,25 +7,9 @@
  * @package WordPress
  * @subpackage Twenty_Eleven
  * @since Android 1.0
- *Remove hack -Librazyishere
-<!--[if IE 6]>
-<html id="ie6" class="is_ie" lang="zh-CN">
-<![endif]-->
-<!--[if IE 7]>
-<html id="ie7" class="is_ie" lang="zh-CN">
-<![endif]-->
-<!--[if IE 8]>
-<html id="ie8" class="is_ie" lang="zh-CN">
-<![endif]-->
-<!--[if gte IE 9]>
-<html id="ie9" class="is_ie" lang="zh-CN">
-<![endif]-->
-<!--[if !IE]><!--> <!--<![endif]-->    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_directory'); ?>/fix.css"/><![endif]-->
  */
 ?>
-
 <!DOCTYPE html>
-
 <html <?php if(is_mobile()){echo 'class="is_mobile" ';} ?> lang="zh-CN">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=<?php bloginfo('charset'); ?>" />
@@ -35,21 +19,16 @@
        * Print the <title> tag based on what is being viewed.
        */
         global $page, $paged;
-
         wp_title('|', true, 'right');
-
         // Add the blog name.
         bloginfo('name');
-
         // Add the blog description for the home/front page.
         $site_description = get_bloginfo('description', 'display');
         if ($site_description && (is_home() || is_front_page()))
             echo " | $site_description";
-
         // Add a page number if necessary:
         if ($paged >= 2 || $page >= 2)
             echo ' | ' . sprintf(__('Page %s', 'HD'), max($paged, $page));
-
         ?></title>
     <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name');?> Feed RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
     <link rel="profile" href="http://gmpg.org/xfn/11"/>
@@ -73,14 +52,14 @@ if(is_home()){
     wp_head();
    ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> itemscope itemtype="http://schema.org/Blog">
 <!-- Header -->
 <header id="header">
     <div class="lay_wrap clearfix" id="header-wrap">
         <div class="col-3 logo">
             <a href="<?php echo esc_url(home_url('/')); ?>"
                title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>"
-               rel="home"><span class="link-logo"></span><span class="blog-name"><?php bloginfo('name'); ?></span></a>
+               rel="home"><span class="link-logo"></span><span class="blog-name" itemprop="name"><?php bloginfo('name'); ?></span></a>
             <div class="btn-quicknav" id="btn-quicknav">
                 <a href="#" class="arrow-inactive">Quicknav</a>
                 <a href="#" class="arrow-active">Quicknav</a>

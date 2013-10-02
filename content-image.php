@@ -12,12 +12,12 @@ Template Name:博文格式：图片
  * @since Android 1.0
  */
 ?>
-	<article id="post-<?php the_ID(); ?>" <?php post_class( 'indexed' ); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class( 'indexed' ); ?>  itemprop="Photograph" itemscope itemtype="http://schema.org/Photograph">
 		<header class="entry-header">
-			<hgroup>
-				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( __('%s 的链接','HD'), esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+			<span>
+				<h2 class="entry-title" itemprop="headline"><a href="<?php the_permalink(); ?>" title="<?php printf( __('%s 的链接','HD'), esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 				<h3 class="entry-format"><?php _e( 'Image', 'HD' ); ?></h3>
-			</hgroup>
+			</span>
 
 			<?php if ( comments_open() && ! post_password_required() ) : ?>
 			<div class="comments-link">
@@ -26,15 +26,16 @@ Template Name:博文格式：图片
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<div class="entry-content">
+		<div class="entry-content" itemprop="articleBody">
 			<?php the_content( __('继续阅读<span class="meta-nav">&rarr;</span>', 'HD' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'HD' ) . '</span>', 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 
 		<footer class="entry-meta">
 			<div class="entry-meta">
+				<meta itemprop="datePublished" content="<?php the_time('Y-m-d');?>">
 				<?php
-					printf( __( '<a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s" pubdate>%3$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%4$s" title="%5$s" rel="author">%6$s</a></span></span>', 'HD' ),
+					printf( __( '<a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s">%3$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard" itemprop="author"><a class="url fn n" href="%4$s" title="%5$s" rel="author">%6$s</a></span></span>', 'HD' ),
 						esc_url( get_permalink() ),
 						get_the_date( 'c' ),
 						get_the_date(),
@@ -64,6 +65,7 @@ Template Name:博文格式：图片
 				<?php endif; // End if $tags_list ?>
 
 				<?php if ( comments_open() ) : ?>
+				<meta itemprop="interactionCount" content="UserComments:<?php echo get_comments_number()?>" />
 				<?php comments_popup_link( '<span class="leave-reply">' . __( '评论', 'HD' ) . '</span>', __( '沙发已占', 'HD' ), __('<b>%</b> 条吐槽', 'HD' ) ); ?>
 				<?php endif; // End if comments_open() ?>
 			</div><!-- .entry-meta -->

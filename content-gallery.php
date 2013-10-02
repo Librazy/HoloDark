@@ -13,12 +13,12 @@ Template Name:博文格式：相册
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>  itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 	<header class="entry-header">
-		<hgroup>
-			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( __('%s 的链接','HD'), esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+		<span>
+			<h2 class="entry-title" itemprop="headline"><a href="<?php the_permalink(); ?>" title="<?php printf( __('%s 的链接','HD'), esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 			<h3 class="entry-format"><?php _e( 'Gallery', 'HD' ); ?></h3>
-		</hgroup>
+		</span>
 
 		<div class="entry-meta">
 			<?php android_posted_on(); ?>
@@ -30,7 +30,7 @@ Template Name:博文格式：相册
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 		<?php else : ?>
-		<div class="entry-content">
+		<div class="entry-content" itemprop="articleBody">
 			<?php if ( post_password_required() ) : ?>
 				<?php the_content( __('继续阅读<span class="meta-nav">&rarr;</span>', 'HD' ) ); ?>
 			<?php else : ?>
@@ -86,6 +86,7 @@ Template Name:博文格式：相册
 		<?php if ( $show_sep ) : ?>
 		<span class="sep"> | </span>
 		<?php endif; // End if $show_sep ?>
+		<meta itemprop="interactionCount" content="UserComments:<?php echo get_comments_number()?>" />
 		<span class="comments-link"><?php comments_popup_link( '<span class="leave-reply">' . __( '评论', 'HD' ) . '</span>', __( '沙发已占', 'HD' ), __('<b>%</b> 条吐槽', 'HD' ) ); ?></span>
 		<?php endif; // End if comments_open() ?>
 

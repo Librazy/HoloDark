@@ -19,7 +19,7 @@ wp_enqueue_script( 'android-showcase', get_template_directory_uri() . '/js/showc
 
 get_header(); ?>
 <?php get_sidebar(); ?>
-		<div id="primary" class="showcase">
+		<div id="primary" class="showcase" itemprop="CollectionPage" itemscope itemtype="http://schema.org/CollectionPage">
 			<div id="content" role="main">
 
 				<?php while ( have_posts() ) : the_post(); ?>
@@ -104,7 +104,7 @@ get_header(); ?>
 					}
 					?>
 
-					<section class="featured-post <?php echo $feature_class; ?>" id="featured-post-<?php echo $counter_slider; ?>">
+					<section class="featured-post <?php echo $feature_class; ?>" id="featured-post-<?php echo $counter_slider; ?>"  itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 
 						<?php
 							/**
@@ -195,9 +195,10 @@ get_header(); ?>
 					// For all other recent posts, just display the title and comment status.
 					while ( $recent->have_posts() ) : $recent->the_post(); ?>
 
-						<li class="entry-title">
-							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( __('%s 的链接','HD'), 'HD' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+						<li class="entry-title"  itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( __('%s 的链接','HD'), 'HD' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark" itemprop="name"><?php the_title(); ?></a>
 							<span class="comments-link">
+								<meta itemprop="interactionCount" content="UserComments:<?php echo get_comments_number()?>" />
 								<?php comments_popup_link( '<span class="leave-reply">' . __( '评论', 'HD' ) . '</span>', __( '沙发已占', 'HD' ), __('<b>%</b> 条吐槽', 'HD' ) ); ?>
 							</span>
 						</li>
@@ -211,15 +212,6 @@ get_header(); ?>
 					?>
 				</section><!-- .recent-posts -->
 
-				<div class="widget-area" role="complementary">
-					<?php if ( ! dynamic_sidebar( 'sidebar-2' ) ) : ?>
-
-						<?php
-						the_widget( 'Twenty_Eleven_Ephemera_Widget', '', array( 'before_title' => '<h3 class="widget-title">', 'after_title' => '</h3>' ) );
-						?>
-
-					<?php endif; // end sidebar widget area ?>
-				</div><!-- .widget-area -->
 
 			</div><!-- #content -->
 		</div><!-- #primary -->

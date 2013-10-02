@@ -13,12 +13,12 @@ Template Name:博文格式：链接
  */
 ?>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<header class="entry-header">
-			<hgroup>
-				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( __('%s 的链接','HD'),esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+			<span>
+				<h2 class="entry-title" itemprop="headline"><a href="<?php the_permalink(); ?>" title="<?php printf( __('%s 的链接','HD'),esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 				<h3 class="entry-format"><?php _e( 'Link', 'HD' ); ?></h3>
-			</hgroup>
+			</span>
 
 			<?php if ( comments_open() && ! post_password_required() ) : ?>
 			<div class="comments-link">
@@ -32,7 +32,7 @@ Template Name:博文格式：链接
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 		<?php else : ?>
-		<div class="entry-content">
+		<div class="entry-content"  itemprop="articleBody">
 			<?php the_content( __('继续阅读<span class="meta-nav">&rarr;</span>', 'HD' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'HD' ) . '</span>', 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
@@ -42,6 +42,7 @@ Template Name:博文格式：链接
 			<?php android_posted_on(); ?>
 			<?php if ( comments_open() ) : ?>
 			<span class="sep"> | </span>
+			<meta itemprop="interactionCount" content="UserComments:<?php echo get_comments_number()?>" />
 			<span class="comments-link"><?php comments_popup_link( '<span class="leave-reply">' . __('评论', 'HD' ) . '</span>', __( '沙发已占', 'HD' ), __( '<b>%</b> 条吐槽', 'HD' ) ); ?></span>
 			<?php endif; ?>
 		</footer><!-- #entry-meta -->

@@ -10,14 +10,14 @@
 get_header(); ?>
 <?php get_sidebar(); ?>
 
-		<section id="primary">
+		<section id="primary" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
 			<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
 
 				<header class="page-header">
-					<h1 class="page-title"><?php
-						printf( __( 'Tag Archives: %s', 'HD' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+					<h1 class="page-title" ><?php
+						printf( __( 'Tag Archives: %s', 'HD' ), '<span itemprop="name">' . single_tag_title( '', false ) . '</span>' );
 					?></h1>
 
 					<?php

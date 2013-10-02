@@ -11,12 +11,12 @@ Template Name:博文格式：引语
  */
 ?>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<header class="entry-header">
-			<hgroup>
-				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( __('%s 的链接','HD'),esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+			<span>
+				<h2 class="entry-title" itemprop="headline"><a href="<?php the_permalink(); ?>" title="<?php printf( __('%s 的链接','HD'),esc_attr(the_title_attribute( 'echo=0' )) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 				<h3 class="entry-format"><?php _e( 'Quote', 'HD' ); ?></h3>
-			</hgroup>
+			</span>
 
 			<div class="entry-meta">
 				<?php android_posted_on(); ?>
@@ -24,6 +24,7 @@ Template Name:博文格式：引语
 
 			<?php if ( comments_open() && ! post_password_required() ) : ?>
 			<div class="comments-link">
+				<meta itemprop="interactionCount" content="UserComments:<?php echo get_comments_number()?>" />
 				<?php comments_popup_link( '<span class="leave-reply">' . __( '<b>%</b> 条吐槽', 'HD' ) . '</span>', _x( '1', 'comments number', 'HD' ), _x( '%', 'comments number', 'HD' ) ); ?>
 			</div>
 			<?php endif; ?>
@@ -34,7 +35,7 @@ Template Name:博文格式：引语
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 		<?php else : ?>
-		<div class="entry-content">
+		<div class="entry-content"  itemprop="articleBody">
 			<?php the_content( __( '继续阅读<span class="meta-nav">&rarr;</span>', 'HD' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'HD' ) . '</span>', 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->

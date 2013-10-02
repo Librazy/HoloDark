@@ -4,7 +4,7 @@ Theme URI: http://im.librazy.org/
 Author: Librazy
 Author URI: http://im.librazy.org/
 Description: HoloDark&Android developer Design.
-Version: 1.0.131002.1332
+Version: 1.0.131002.1621
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: dark, holo, gray,  three-columns, left-sidebar, right-sidebar,  custom-background,editor-style, featured-image-header, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, translation-ready
@@ -687,11 +687,11 @@ a:hover{
 	font-size:12px;
 	line-height:18px;
 }
+.entry-meta span{
+	display:inline;
+}
 .entry-meta a{
 	font-weight:bold;
-}
-.single-author .entry-meta .by-author{
-	display:none;
 }
 .entry-content,
 .entry-summary{
@@ -995,13 +995,13 @@ object{
 }
 #footerbar>div,#footerbar>div li{display:inline;margin:2px;}
 #footerbar{margin-left:180px;}
-hgroup .entry-format{
+span .entry-format{
 	display:inline;
 }
-hgroup .entry-title{
+span .entry-title{
 	display:inline;
 }
-hgroup .entry-title:before{
+span .entry-title:before{
 	content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/0lEQVRYw+2Xz0obURTGv++cya5YWk2KRWtBKhJrdaNUBtH6B1wV+ihd9LnyAAUpFVdBWksfwCAmabpRE7tRZrq4M8kMOqm5d5JS6N3cy13c7/edc+bcO8C/PPxKNfQr1dDlDLqIt46/AgBKS8s4fLdidZbnIn6y/zG1ZwNBF3F5+gQAENR/4PnWrlUk6CLOsQcAgPCyYyC2d1F6NRgEXcXNKQTaHQSNFmbe7KC0uHRvCOYhThFQiLB9ZSA2tlBcWLwXBK3FSZAEJAJQAUQQXF4hOGtiZn0TxfLLP0LQWjxyjYS4WaupidMmpv11FOfLfSE4kHiG6xiCqt05vOjgplbH9JqPiRfzmRAcSLyP6xSAZ+bwvI2bkzqmVl5jfHbuTojMRhQ3maDRApstU+kU6LNJyKOHma6va3VAFRSCFEAUZ1+OMD47N1gnXH3/4dbez+/fUDv4BJl4fKfr69NGN+ROrTgrX36lGtYOP0MKXkLcAMAz6375zuUuoCroealcmz0DMPTLiKrdCCAJoArKiABY0ITrdCEO/zpWBQteKv+9WYYPICpRChKuVcCoJww/AhIXYcJ13BNGAcAoArHrLkDUnkdThJ6mXUt0R4ziTUiRHkDsmtZvW8uvQLXn2kHcMgI0eXcUtgdgfuLW/wV5DiuAX/tHfw+gvPcW/0ee4zez97vdlkdusgAAAABJRU5ErkJggg==);
 }
 /*Post Formats Headings
@@ -1030,7 +1030,7 @@ and remove the padding rules below.
 	text-transform:uppercase;
 	top:-5px;
 }
-.entry-header hgroup .entry-title{
+.entry-header span .entry-title{
 	padding-top:15px;
 }
 article.format-aside .entry-content,
@@ -1044,7 +1044,7 @@ article.format-status .entry-content{
 .recent-posts .entry-header .entry-format{
 	display:none;
 }
-.recent-posts .entry-header hgroup .entry-title{
+.recent-posts .entry-header span .entry-title{
 	padding-top:0;
 }
 
@@ -2102,7 +2102,7 @@ p.comment-form-comment{
 		border-top:none !important;
 		padding:0;
 	}
-	#branding hgroup{
+	#branding span{
 		margin:0;
 	}
 	#site-title a{

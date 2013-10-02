@@ -11,9 +11,9 @@ Template Name:博文格式：普通
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 	<header class="entry-header">
-                <h1 class="entry-title"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
+                <h1 class="entry-title" itemprop="headline"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php android_posted_on(); ?>
@@ -31,25 +31,20 @@ Template Name:博文格式：普通
        * Print the <title> tag based on what is being viewed.
        */
         global $page, $paged;
-
         wp_title('|', true, 'right');
-
         // Add the blog name.
         bloginfo('name');
-
         // Add the blog description for the home/front page.
         $site_description = get_bloginfo('description', 'display');
         if ($site_description && (is_home() || is_front_page()))
             echo " | $site_description";
-
         // Add a page number if necessary:
         if ($paged >= 2 || $page >= 2)
             echo ' | ' . sprintf(__('Page %s', 'HD'), max($paged, $page));
-
         ?>"
             trackback:ping="<?php bloginfo('pingback_url'); ?>" />
         </rdf:RDF>-->
-	<div class="entry-content">
+	<div class="entry-content"  itemprop="articleBody">
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'HD' ) . '</span>', 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
@@ -58,17 +53,15 @@ Template Name:博文格式：普通
 		<?php
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( __( ', ', 'HD' ) );
-
 			/* translators: used between list items, there is a space after the comma */
 			$tag_list = get_the_tag_list( '', __( ', ', 'HD' ) );
 			if ( '' != $tag_list ) {
-				$utility_text = __( 'Posted in %1$s and tagged %2$s by <a href="%6$s">%5$s</a>.', 'HD' );
+				$utility_text = __( 'Posted in %1$s and tagged %2$s by <a href="%6$s"  itemprop="author">%5$s</a>.', 'HD' );
 			} elseif ( '' != $categories_list ) {
-				$utility_text = __( 'Posted in %1$s by <a href="%6$s">%5$s</a>.', 'HD' );
+				$utility_text = __( 'Posted in %1$s by <a href="%6$s"  itemprop="author">%5$s</a>.', 'HD' );
 			} else {
-				$utility_text = __( 'Posted by <a href="%6$s">%5$s</a>.', 'HD' );
+				$utility_text = __( 'Posted by <a href="%6$s"  itemprop="author">%5$s</a>.', 'HD' );
 			}
-
 			printf(
 				$utility_text,
 				$categories_list,
@@ -81,12 +74,12 @@ Template Name:博文格式：普通
 		?>
 
 		<?php if ( get_the_author_meta( 'description' ) && ( ! function_exists( 'is_multi_author' ) || is_multi_author() ) ): // If a user has filled out their description and this is a multi-author blog, show a bio on their entries ?>
-		<div id="author-info" class="vcard">
+		<div id="author-info" class="vcard" itemprop="author"  itemscope itemtype="http://schema.org/Person">
 			<div class="hiddenvc">
-				<span class="fn"><?php echo get_the_author_meta( 'display_name' );?></span>
-				<span class="email"><?php echo get_the_author_meta( 'user_email' );?></span>
-				<span class="url"><?php echo get_the_author_meta( 'user_url' );?></span>
-                        </div>
+				<span class="fn" itemprop="name"><?php echo get_the_author_meta( 'display_name' );?></span>
+				<span class="email" itemprop="email"><?php echo get_the_author_meta( 'user_email' );?></span>
+				<span class="url" itemprop="url"><?php echo get_the_author_meta( 'user_url' );?></span>
+            </div>
 			<div id="author-description">
 				<div id="author-avatar">
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'android_author_bio_avatar_size', 68 ) ); ?>
@@ -96,7 +89,7 @@ Template Name:博文格式：普通
 					<!--<img src="http://catqr.yiduqiang.com/cat/ys/average.php?bj_16_color=FFFFFF&bbj=&logoIMGtoBJ=img/2012/12/08/f93de05c9647b9a592e94756cf7566ed.png&ewm_16_color=000000&yj=Y&cw=H&width=10&JZurl=&JZx=&JZy=&txt=<?php echo wp_get_shortlink(); ?>" width="160" height="160" alt="大猫二维码" rel="nofollow noindex" />-->
                                         <img src="<?php echo holodark_generate_qr(wp_get_shortlink()); ?>" width="160" height="160" alt="二维码" rel="nofollow noindex" />
 				</div><!-- .erweima -->
-				<div id="author-description-content"><?php the_author_meta( 'description' ); ?></div>
+				<div id="author-description-content" itemprop="description"><?php the_author_meta( 'description' ); ?></div>
 				<div id="author-link">
 					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author" class="url">
 						<?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'HD' ), get_the_author() ); ?>
