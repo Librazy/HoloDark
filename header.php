@@ -68,24 +68,26 @@ if(is_home()){
         <?php
 //list terms in a given taxonomy using wp_list_categories (also useful as a widget if using a PHP Code plugin)
         $categories = get_the_category(); //get all categories for this post
-	if(is_home()||is_page()||is_author()){
+	if(!$categories){
 	    $args = array(
-            'orderby' => 'id',
+		'number' => 7,
+            	'orderby' => 'id',
           	'show_count' => 0,
           	'pad_counts' => 0,
-         	'hierarchical' => 1,
-			'depth' => 1,
-            'title_li' => ''
+         	'hierarchical' => 0,
+          	'title_li' => '',
+		'depth' => 1
         );
 	}else{
         $args = array(
-            'orderby' => 'id',
-            'show_count' => 0,
-            'pad_counts' => 0,
-            'hierarchical' => 1,
-            'current_category' => $categories[0]->cat_ID,
-            'depth' => 1,
-            'title_li' => ''
+		'number' => 7,
+		'orderby' => 'id',
+		'show_count' => 0,
+		'pad_counts' => 0,
+		'hierarchical' => 0,
+		'current_category' => $categories[0]->cat_ID,
+		'title_li' => '',
+		'depth' => 1
         );
 	}
         ?>
@@ -120,9 +122,6 @@ if(is_home()){
         <div id="quicknav" class="col-9">
             <ul>
                 <?php
-                $args = array(
-                    'orderby' => 'id'
-                );
                 $categories = get_categories($args);
                 foreach ($categories as $category) {
                     echo '<li class="' . $category->name . '"><ul>';

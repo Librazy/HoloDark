@@ -19,6 +19,8 @@ $("#btn-quicknav").toggle(function () {
 );
 function searchActive() {
     $("#search-container").addClass("active");
+	$("#header-wrap").removeClass("quicknav");
+    $("#quicknav").slideUp("normal",function () {init();fixsidebar();});
     $("#s").focus().blur(function () {
         $("#search-container").removeClass("active");
 		$("#search_filtered").fadeOut();
@@ -72,10 +74,6 @@ function fixsidebar() {
             });
 			$('#fixsidebar ul li ul.blogroll li').css({
                 'display': 'list-item',
-				'background':'none'
-            });
-			$('#fixsidebar ul li ul.blogroll li a').css({
-				'color':'rgb(25, 130, 209)'
             });
 			$('#fixsidebar>ul').css({
                 'max-height':'none'
@@ -88,13 +86,7 @@ function fixsidebar() {
 				'max-width': 360
             });
 			$('#fixsidebar ul li ul.blogroll li').css({
-                'display': 'inline-block',
-				'background':'rgba(0, 0, 0, 0.06)',
-				'margin':2
-            });
-			$('#fixsidebar ul li ul.blogroll li a').css({
-				'color':'rgb(187, 187, 187)',
-				'text-decoration':'none'
+                'display': 'inline-block'
             });
 			$('#fixsidebar>ul').css({
                 'max-height':win_height

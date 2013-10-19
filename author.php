@@ -41,7 +41,7 @@ get_header(); ?>
 				
 				<?php
 				// If a user has filled out their description, show a bio on their entries.
-		if ( get_the_author_meta( 'description' ) ) : ?>
+		if ($blogOption['show_autmeta']) : ?>
 		<div id="author-info" class="vcard" itemprop="author"  itemscope itemtype="http://schema.org/Person">
 			<div class="hiddenvc">
 				<span class="fn" itemprop="name"><?php echo get_the_author_meta( 'display_name' );?></span>
@@ -57,7 +57,7 @@ get_header(); ?>
 				<div class="autqrcode">
 				<img src="<?php echo holodark_generate_qr(wp_get_shortlink()); ?> " width="160" height="160" alt="二维码" rel="nofollow noindex" />
 				</div><!-- .qrcode -->
-				<?php endif; ?> 
+				<?php endif; ?> <!-- if ($blogOption['show_qr']) : -->
 				<div id="autauthor-description-content" itemprop="description"><?php the_author_meta( 'description' ); ?></div>
 				<div id="author-link">
 					<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"  class="url" itemprop="url">
@@ -66,9 +66,8 @@ get_header(); ?>
 				</div><!-- #author-link	-->
 			</div><!-- #author-description -->
 		</div><!-- #author-info -->
-		<?php endif; ?>
+		<?php endif; ?><!-- if ($blogOption['show_autmeta']) : -->
 		<br /><br />
-				<?php endif; ?>
 
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>

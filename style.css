@@ -1,10 +1,10 @@
-﻿/*
+﻿﻿﻿/*
 Theme Name: HoloDark
 Theme URI: http://im.librazy.org/
 Author: Librazy
 Author URI: http://im.librazy.org/
 Description: HoloDark&Android developer Design.
-Version: 1.0.131002.2254
+Version: 1.0.131019.1500
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: dark, holo, gray,  three-columns, left-sidebar, right-sidebar,  custom-background,editor-style, featured-image-header, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, translation-ready
@@ -186,16 +186,15 @@ a.button, a.button:visited, #submit{
 #header .quicknav .logo .btn-quicknav  .arrow-inactive{ display:none; }
 #header .nav-x li{ height:38px; display:block; float:left; margin-right:45px; -webkit-transition:all 0.25s linear; -moz-transition:all 0.25s linear; transition:all 0.25s linear; }
 #header .nav-x .current-cat{ border-bottom:4px solid #33B5E5 }
-#header .nav-x a{ color:#23A5D5; font-size:16px;text-decoration: none; }
-#header .nav-x .current-cat a{ color:#33B5E5;text-decoration: none; }
+#header .nav-x a{ color:#EEE; font-size:16px;text-decoration: none; }
+#header .nav-x .current-cat a{ text-decoration: none; }
 #header-wrap{ -webkit-transition:all .5s ease-out; -moz-transition:all .5s ease-out; transition:all .5s ease-out; }
 #header-wrap.quicknav{ height:170px; }
-#header-wrap.quicknav .nav-x li{ min-width:120px; margin-right:20px; }
-#header-wrap.quicknav .nav-x li{ min-width:120px; margin-right:20px; }
+#header-wrap.quicknav .nav-x li{ min-width:110px; margin-right:20px; }
 #msg_ie{display:none !important;}
 #quicknav{ float:none; clear:both; margin-left:200px; display:none; overflow:hidden; }
 #quicknav ul{ margin-top:5px; padding:0; }
-#quicknav ul li{ display:block; float:left; margin:0 10px 0 0; min-width:110px; }
+#quicknav ul li{ display:block; float:left; margin:0 10px 0 0; width:120px; }
 #quicknav ul li:last-child{ margin-right:0; }
 #quicknav ul li ul li{ float:none; border:none; width:120px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; font-size:12px; }
 #quicknav ul li ul li a{ color:#EEE; }
@@ -415,7 +414,11 @@ body, input, textarea{
 	color:#EEE;
 	line-height:1.625;
 }
-
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"],button{
+	color:#FFF;
+	background: rgb(48,48,48);
+	border: 2px solid rgb(80,80,80);
+}
 /* Headings */
 
 hr{
@@ -450,7 +453,7 @@ cite, em, i{
 blockquote{
 	background-color:rgba(99,99,133, .3);
 	-webkit-box-shadow: 0 0 9px rgba(99,99,133, .2);box-shadow: 0 0 9px rgba(99,99,133, .2);
-	padding:5px;font:0.8em;
+	padding:5px;
 	border-left:1px dotted #09F;
 	margin:0 1em; 
 }
@@ -481,7 +484,7 @@ address{
 	margin:0 0 1.625em;
 }
 ins{
-	background:#fff9c0;
+	background:#000;
 	text-decoration:none;
 }
 sup,
@@ -641,8 +644,7 @@ a:hover{
 }
 .hentry,
 .no-results{
-	border-bottom:2px solid #33B5E5;
-	margin:0 0 10px;
+	margin:0 0 20px;
 	padding:0 0 30px;
 	position:relative;
 }
@@ -663,11 +665,12 @@ a:hover{
 	text-decoration:none;
 }
 .entry-title{
+	border-bottom:2px solid #33B5E5;
 	color:#33B5E5;
 	font-size:30px;
 	line-height:1.5em;
 	padding-bottom:.3em;
-		margin:0 0 0 -14px;
+	margin:0 0 0 -14px;
 }
 .entry-title,
 .entry-title a{
@@ -702,10 +705,15 @@ a:hover{
 .comment-content h1,
 .comment-content h2{
 	color:#1193C3;
-	margin:1em 0 1em -14px;
+	margin:1em 0 1em -18px;
 	font-size:22px;
-	border-left:1px solid #33B5E5;
+	border-bottom:2px solid #33B5E5;
 	padding-left:5px;
+}
+.entry-content h2,.comment-content h2{
+	font-size:20px;
+	margin:1em 0 1em -14px;
+	border-bottom:1px solid #33B5E5;
 }
 .entry-content h3,
 .comment-content h3{
@@ -713,7 +721,7 @@ a:hover{
 	border-left: 1px solid #33B5E5;
 	margin:1em 0 1em -10px;
 	padding-left:5px;
-	font-size:20px;
+	font-size:18px;
 }
 .entry-content table,
 .comment-content table{
@@ -738,8 +746,8 @@ a:hover{
 .entry-content #s{
 	width:75%;
 }
-.entry-content ul {list-style: disc outside none;margin: 1em 0 1em 40px;color: #888;}
-.entry-content ol {list-style: decimal outside none;margin: 1em 0 1em 40px;color: #888;}
+.entry-content ul {list-style: disc outside none;margin: 1em 0 1em 40px;color: #DDD;}
+.entry-content ol {list-style: decimal outside none;margin: 1em 0 1em 40px;color: #DDD;}
 .entry-content li {margin-bottom:5px;}
 .comment-content ul,
 .comment-content ol{
@@ -760,16 +768,17 @@ dl.gallery-item{
 	margin:0 0 1.625em;
 }
 .page-link a{
-	background:#eee;
-	color:#373737;
+	color:#FFF;
+	background: rgb(48,48,48);
+	border: 2px solid rgb(80,80,80);
 	margin:0;
 	padding:2px 3px;
 	text-decoration:none;
 }
 .page-link a:hover{
-	background:#888;
-	color:#fff;
-	font-weight:bold;
+	color:#FFF;
+	background: rgb(48,48,48);
+	border: 2px solid #33B5E5;
 }
 .page-link span{
 	margin-right:6px;
@@ -969,7 +978,7 @@ object{
 }
 #sidebar-right ul li ul li>a {
 	font-size:16px;
-	padding-left:8px;
+	padding-left:6px;
 }
 #sidebar-right ul li>.ds-recent-comments{
 	padding-left:0px !important;
@@ -994,13 +1003,25 @@ object{
 #fixsidebar>ul{
 	overflow-y:auto;
 }
+#fixsidebar ul>li>ul>li,#staticsidebar ul>li>ul>li{
+	margin:2px;
+}
+#fixsidebar ul>li>ul>li>a,#staticsidebar ul>li>ul>li>a{
+	background:rgba(0, 0, 0, 0.1);
+	color:rgb(187, 187, 187);
+	text-decoration:none;
+}
 #footerbar>div,#footerbar>div li{display:inline;margin:2px;}
 #footerbar{margin-left:180px;}
+.hgroup{
+	border-bottom: 2px solid #33B5E5;
+}
 .hgroup .entry-format{
 	display:inline;
 }
 .hgroup .entry-title{
 	display:inline;
+	border-bottom:none;
 }
 .hgroup .entry-title:before{
 	content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/0lEQVRYw+2Xz0obURTGv++cya5YWk2KRWtBKhJrdaNUBtH6B1wV+ihd9LnyAAUpFVdBWksfwCAmabpRE7tRZrq4M8kMOqm5d5JS6N3cy13c7/edc+bcO8C/PPxKNfQr1dDlDLqIt46/AgBKS8s4fLdidZbnIn6y/zG1ZwNBF3F5+gQAENR/4PnWrlUk6CLOsQcAgPCyYyC2d1F6NRgEXcXNKQTaHQSNFmbe7KC0uHRvCOYhThFQiLB9ZSA2tlBcWLwXBK3FSZAEJAJQAUQQXF4hOGtiZn0TxfLLP0LQWjxyjYS4WaupidMmpv11FOfLfSE4kHiG6xiCqt05vOjgplbH9JqPiRfzmRAcSLyP6xSAZ+bwvI2bkzqmVl5jfHbuTojMRhQ3maDRApstU+kU6LNJyKOHma6va3VAFRSCFEAUZ1+OMD47N1gnXH3/4dbez+/fUDv4BJl4fKfr69NGN+ROrTgrX36lGtYOP0MKXkLcAMAz6375zuUuoCroealcmz0DMPTLiKrdCCAJoArKiABY0ITrdCEO/zpWBQteKv+9WYYPICpRChKuVcCoJww/AhIXYcJ13BNGAcAoArHrLkDUnkdThJ6mXUt0R4ziTUiRHkDsmtZvW8uvQLXn2kHcMgI0eXcUtgdgfuLW/wV5DiuAX/tHfw+gvPcW/0ee4zez97vdlkdusgAAAABJRU5ErkJggg==);
@@ -1037,7 +1058,7 @@ and remove the padding rules below.
 article.format-aside .entry-content,
 article.format-link .entry-content,
 article.format-status .entry-content{
-	padding:20px 0 0;
+	padding:20px 1em 0;
 }
 article.format-status .entry-content{
 	min-height:65px;
@@ -1061,6 +1082,7 @@ article.format-status .entry-content{
 	color:#33B5E5;
 	font-size:36px;
 	line-height:48px;
+	border:none;
 }
 blockquote.pull{
 	font-size:21px;

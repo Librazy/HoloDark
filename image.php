@@ -36,7 +36,7 @@ get_header(); ?>
 										esc_url( get_permalink( $post->post_parent ) ),
 										esc_attr( strip_tags( get_the_title( $post->post_parent ) ) ),
 										get_the_title( $post->post_parent ),
-										the_time('Y-m-d');
+										the_time('Y-m-d')
 									);
 								?>
 							</div><!-- .entry-meta -->

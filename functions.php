@@ -403,7 +403,7 @@ stristr($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0')) {
 }
 function holodark_the_title($thetitle)
 {
-    return esc_attr($thetitle);
+    return preg_replace('~<([a-z]+?)\s+?.*?>~i','<$1>',($thetitle));
 }
 add_filter('the_title','holodark_the_title');
 
