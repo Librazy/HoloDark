@@ -1,5 +1,4 @@
 <?php
-
 $is_ad = false; // 庙的广告,默认关闭
 add_theme_support( 'post-thumbnails', array( 'post', 'movie' ) );
 add_theme_support( 'post-formats', array( 'aside', 'gallery','chat','link','image','quote','status','video'));
@@ -480,6 +479,7 @@ class hdoptions {
 		if (!is_array($options)) {
 			$options['show_qr'] = '1';
 			$options['show_autmeta']  = '1';
+			$options['logo_URI'] = '';
 			update_option('HoloDark_options', $options);
 		}
 		return $options;
@@ -490,8 +490,9 @@ class hdoptions {
 			$options = hdoptions::getopts();
 			$options['show_qr'] = !(!($_POST['show_qr']));
 			$options['show_autmeta'] = !(!($_POST['show_autmeta']));
+			$options['logo_URI'] = $_POST['logo_URI'];
+			$options['updated'] = true;
 			update_option('HoloDark_options', $options);
-			echo '<div class="updated"><p><strong>' .'设置成功' . '</strong></p></div>';
 		} else {
 			hdoptions::getopts();
 		}
@@ -504,16 +505,22 @@ class hdoptions {
 <form action="#" method="post" enctype="multipart/form-data" name="holodark_form" id="holodark_form">
 <div class="wrap">
 	<h2>HoloDark 主题设置</h2>
+	<?php  if($options['updated']):echo '<div class="updated"><p><strong>' .'设置成功' . '</strong></p></div>';$options['updated']=false;update_option('HoloDark_options', $options);endif;?>
 		<h3>显示设置</h3>
 		<div class="settings">
 			<label for="show_autmeta">显示作者信息：</label>
-			<input id="show_autmeta" name="show_autmeta" type="checkbox" <?php if($options['show_autmeta'])echo 'checked="checked"'?>>
+			<input id="show_autmeta" name="show_autmeta" type="checkbox" <?php if($options['show_autmeta'])echo 'checked="checked"'?> />
 			<span class="description">选中则启用显示作者信息</span>
 		</div>
 		<div class="settings">
 			<label for="show_qr">显示QR码：（需显示作者信息）</label>
-			<input id="show_qr" name="show_qr" type="checkbox" <?php if($options['show_qr'])echo 'checked="checked"'?>>
+			<input id="show_qr" name="show_qr" type="checkbox" <?php if($options['show_qr'])echo 'checked="checked"'?>/>
 			<span class="description">选中则启用自动生成QR码</span>
+		</div>
+		<div class="settings">
+			<label for="show_qr">Logo：</label>
+			<input id="logo_URI" name="logo_URI" type="text" value="<?php echo $options['logo_URI']?>" />
+			<span class="description">左上角Logo地址</span>
 		</div>
 		<!-- 提交按钮 -->
 		<p class="submit">

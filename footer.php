@@ -1,4 +1,5 @@
 <?php
+$blogOption = hdoptions::getopts();
 /**
  * The template for displaying the footer.
  *
@@ -54,6 +55,7 @@
 <?php wp_footer(); ?>
 <script type="text/javascript">
     var home_url="<?php echo esc_url(home_url('/')); ?>";
+    var HDlogo="<?php echo $blogOption['logo_URI']; ?>";
     var is_mobile="<?php if(is_mobile()){echo 'true';}?>";
 </script>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/js/holodark.js"></script>

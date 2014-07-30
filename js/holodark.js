@@ -1,3 +1,5 @@
+function isEmpty(s){ return /^\s*$/.test(s); }
+if(!isEmpty(HDlogo)){$("#header .logo .link-logo").css("backgroundImage","url("+HDlogo+")")};
 $("h1.entry-title a,h2.entry-title a").bind("mouseover mouseleave",function(e){
 	if(e.type=='mouseover'){
 		$(e.target).stop(true,true);
