@@ -52,12 +52,18 @@ $blogOption = hdoptions::getopts();
     </div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
-<?php wp_footer(); ?>
 <script type="text/javascript">
     var home_url="<?php echo esc_url(home_url('/')); ?>";
     var HDlogo="<?php echo $blogOption['logo_URI']; ?>";
     var is_mobile="<?php if(is_mobile()){echo 'true';}?>";
 </script>
-<script src="<?php bloginfo('stylesheet_directory'); ?>/js/holodark.js"></script>
+<?php 
+wp_deregister_script( 'jquery' );
+wp_register_script('jquery',
+       get_template_directory_uri().'/js/holodark.js',
+       array(),
+       '1.0' );
+wp_footer(); ?>
+
 </body>
 </html>

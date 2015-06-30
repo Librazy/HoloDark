@@ -8,6 +8,11 @@ function console($log){
 EOF;
 
 }
+function duoshuo_avatar($avatar) {
+    $avatar = str_replace(array("www.gravatar.com","0.gravatar.com","1.gravatar.com","2.gravatar.com"),"gravatar.duoshuo.com",$avatar);
+    return $avatar;
+}
+add_filter( 'get_avatar', 'duoshuo_avatar', 10, 3 );
 
 if (!function_exists('android_content_nav')
 ) :

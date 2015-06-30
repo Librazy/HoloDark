@@ -1,10 +1,10 @@
-﻿﻿﻿/*
+﻿/*
 Theme Name: HoloDark
 Theme URI: http://im.librazy.org/
 Author: Librazy
 Author URI: http://im.librazy.org/
 Description: HoloDark&Android developer Design.
-Version: 1.0.140205.1753
+Version: 1.0.150620.1130
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: dark, holo, gray,  three-columns, left-sidebar, right-sidebar,  custom-background,editor-style, featured-image-header, featured-images, full-width-template, microformats, post-formats, sticky-post, theme-options, translation-ready
@@ -87,9 +87,14 @@ body{
 	font-weight:400;
 	letter-spacing:.1px;
 }
+/* --------------------------------------------------------------------------
+Hacks
+*/
 body #primary .syntaxhighlighter{word-wrap:break-word;word-break:break-all !important;overflow-y:hidden !important;}
 .hiddenvc{ display:none !important; }
 .ui-hide{ display:none !important; }
+#sidebar-right .fn_search{ display:none !important; }
+#search-2{ display:none !important; }
 .clearfix:before, .clearfix:after{ content:"."; display:block; height:0; visibility:hidden }
 .clearfix:after{ clear:both }
 .clearfix{ zoom:1 }
@@ -685,7 +690,7 @@ a:hover{
 	color:#22A5D5;
 }
 .entry-meta{
-	color:#666;
+	color:#888;
 	clear:both;
 	font-size:12px;
 	line-height:18px;
@@ -759,6 +764,7 @@ a:hover{
 .comment-content ol ul{
 	margin-bottom:0;
 }
+.ds-thread #ds-reset .ds-like-tooltip{background-color:rgba(0,30,40,0.8);text-shadow: 0 1px 0 #000 !important;}
 dl.gallery-item{
 	margin:0;
 }
@@ -977,8 +983,8 @@ object{
 	margin-bottom: 10px;
 }
 #sidebar-right ul li ul li>a {
-	font-size:16px;
-	padding-left:6px;
+	font-size:15px;
+	padding-left:4px;
 }
 #sidebar-right ul li>.ds-recent-comments{
 	padding-left:0px !important;

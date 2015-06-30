@@ -47,6 +47,7 @@
       * generally use this hook to add elements to <head> such
       * as styles, scripts, and meta tags.
       */
+
 if(is_home()){
     eval("su_head();");} //hack SEO Ultimate
     wp_head();
